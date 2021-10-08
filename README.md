@@ -6,7 +6,7 @@ CS319 Student Club Management System Project
 ## Project Name: 
 
 ## Project Description:
-  _In this project, we are planning to create a student project management system in web. This projects demonstrates club activity list and features according to their user role.  _
+  _In this project, we are planning to create a student project management system in web. This projects demonstrates club activity list and features according to their user role._
 
 ## Features:
 
@@ -17,13 +17,13 @@ CS319 Student Club Management System Project
     - Create, delete or customize an activity
     - Limit the number of participants of an activity
     - Access the participants registered to the activities
-    - Delete or add an participant.
+    - Delete or add a participant
     - Set GE250 points of activities
   For participants:
     - Access all planned or past activies
     - QR code integration
     - E-mail authentication
-    - Choose favorite clubs and receive e-mail when favorite club create an activity
+    - Choose favorite clubs and receive e-mail when favorite club creates an activity
     
 
 ## Project Status: 
