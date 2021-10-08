@@ -1,18 +1,40 @@
 # CS319---Beypazari-Maden-Sulari-
-CS319 Student Club Management System Proje
+CS319 Student Club Management System Project
+
+## Table of Contents: 
 
 ## Project Name: 
 
 ## Project Description:
+  _In this project, we are planning to create a student project management system in web. This projects demonstrates club activity list and features according to their user role.  _
 
-## Table of Contents: 
+## Features:
+
+  General features:
+    -
+    -
+  For club manager: 
+    - Create, delete or customize an activity
+    - Limit the number of participants of an activity
+    - Access the participants registered to the activities
+    - Delete or add an participant.
+    - Set GE250 points of activities
+  For participants:
+    - Access all planned or past activies
+    - QR code integration
+    - E-mail authentication
+    - Choose favorite clubs and receive e-mail when favorite club create an activity
+    
 
 ## Project Status: 
+
+## Reports
+
 
 #### Group Members
 - Hakan Gülcü
 - Nasuh Dinçer
 - Emirhan Nadir Karaman
-- Tarik Bugra Karali 
-- Berk Baltaci
+- Tarık Buğra Karali
+- Berk Baltacı
 - Umut Ege Özdemir
