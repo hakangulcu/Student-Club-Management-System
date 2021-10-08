@@ -21,7 +21,7 @@ CS319 Student Club Management System Project
   - Set GE250 points of activities
   
   For participants:  
-  - Access all planned or past activies  
+  - Access all planned or past activities  
   - QR code integration  
   - E-mail authentication  
   - Choose favorite clubs and receive e-mail when favorite club creates an activity
