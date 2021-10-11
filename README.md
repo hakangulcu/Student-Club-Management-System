@@ -2,6 +2,12 @@
 CS319 Student Club Management System Project
 
 ## Table of Contents 
+  - [Project Name](https://github.com/hakangulcu/CS319---Beypazari-Maden-sulari-#project-name)
+  - [Project Description](https://github.com/hakangulcu/CS319---Beypazari-Maden-sulari-#project-description)
+  - [Features](https://github.com/hakangulcu/CS319---Beypazari-Maden-sulari-#features)
+  - [Project Status](https://github.com/hakangulcu/CS319---Beypazari-Maden-sulari-#project-status)
+  - [Reports](https://github.com/hakangulcu/CS319---Beypazari-Maden-sulari-#reports)
+  - [Group Members](https://github.com/hakangulcu/CS319---Beypazari-Maden-sulari-#group-members)
 
 ## Project Name 
 
@@ -32,10 +38,12 @@ CS319 Student Club Management System Project
 ## Reports
 
 
-#### Group Members
-- Hakan Gülcü
-- Nasuh Dinçer
-- Emirhan Nadir Karaman
-- Tarık Buğra Karali
-- Berk Baltacı
-- Umut Ege Özdemir
+## Group Members
+| Student Name  | Student Id |
+| ------------- | -----------|
+| Berk Baltacı  | 21802067   |
+| Nasuh Dinçer  | 21702933 |
+| Hakan Gülcü   | 21702275  |
+| Tarık Buğra Karali | 21703937  |
+| Emirhan Nadir Karaman  | 21903103 |
+|  Umut Ege Özdemir | 21802251  |
