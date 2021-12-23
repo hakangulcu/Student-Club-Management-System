@@ -1,0 +1,48 @@
+.input {
+    border:0;
+    background: none;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    outline: none;
+    color: rgb(16, 1, 99);
+    border-radius: 24px;
+    padding: 14px 10px;
+    width:25%;
+    margin-top:0px;
+    font-size:15px;
+    padding:8px;
+    transition: 0.30s;
+  }
+
+  .input:focus{
+      width: 50%;
+      background: rgb(255, 97, 97);
+      border-color: red;
+      color: rgb(14, 0, 0);   
+  }
+
+  .remove{
+
+    border:0;
+    background: rgb(172, 25, 25);
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #940008;
+    outline: none;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    padding: 14px 10px;
+    width:75%;
+    margin-top:0px;
+    font-size:15px;
+    padding:8px;
+    transition: 0.30s;
+  }
+
+  .remove:hover{
+    width: 100%;
+    background: rgb(247, 142, 142);
+    border-color: red;
+    color: rgb(14, 0, 0);   
+}

@@ -1,0 +1,60 @@
+.container{
+	margin-top: 4%;
+
+}
+form{
+	width: auto;
+	height: auto;
+	padding-bottom: 20px;
+}
+textarea{
+	border: none;
+	outline: none;
+	resize: none;
+    width: 100%;
+	background-color: black;
+	color: blanchedalmond;
+}
+
+label.labels{
+	font-weight: 600;
+	font-size: 12px;
+	color:#ffffff;
+}
+
+.textarea_style{
+	margin-top: 5px;
+	width: auto;
+	height: auto;
+	border: 3px solid #001489;
+	border-radius: 2px;
+	font-size: 16px;
+	color: blanchedalmond;
+}
+.textarea_style:hover{
+
+	border: 3px solid #229CFF;
+}
+.textarea_style:focus{
+
+	border: 3px solid #229CFF;
+}
+
+textarea::-webkit-scrollbar {
+	width: 3px;
+}
+
+textarea::-webkit-scrollbar-track {
+	-webkit-box-shadow:inset 0 0 15px #BDDAE0;
+}
+
+textarea::-webkit-scrollbar-thumb {
+	background-color: #E30A17;
+}
+
+span.textarea_count{
+	margin-top: 2px;
+	float: right;
+	font-size: 10px;
+	color:#EC0F0F;
+}
