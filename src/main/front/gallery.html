@@ -1,0 +1,186 @@
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #000000;
+        }
+
+
+
+        .imagePreview {
+            width: 100%;
+            height: 250px;
+
+            background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+            background-color: rgb(0, 0, 0);
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            box-shadow: 0px -3px 6px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            display: block;
+            border-radius: 0px;
+            box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
+            margin-top: -5px;
+        }
+
+        .imgUp {
+            margin-bottom: 20px;
+        }
+
+        .del {
+            position: absolute;
+            top: 0px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgba(255, 0, 0, 0.6);
+            cursor: pointer;
+        }
+
+        .imgAdd {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #4bd7ef;
+            color: #fff;
+            box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            line-height: 30px;
+            margin-top: 0px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .button-go {
+            border: 0;
+            background: rgb(154, 248, 240);
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #032db9;
+            outline: none;
+            color: rgb(17, 2, 2);
+            border-radius: 24px;
+            padding: 14px 10px;
+            width: 75%;
+            margin-top: 5px;
+            font-size: 15px;
+            padding: 8px;
+            transition: 0.30s;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .button-go:hover {
+            width: 100%;
+            box-shadow: 0 12px 16px 0 #1abc9c, 0 17px 50px 0 #56fcdb;
+            background: #1abc9c;
+            border: 3px solid #29a2f3;
+            color: rgb(240, 251, 255);
+        }
+
+        .button-delete {
+            border: 0;
+            background: rgb(255, 134, 134);
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #b90303;
+            outline: none;
+            color: rgb(17, 2, 2);
+            border-radius: 24px;
+            padding: 14px 10px;
+            width: 75%;
+            margin-top: 5px;
+            font-size: 15px;
+            padding: 8px;
+            transition: 0.30s;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .button-delete:hover {
+            width: 100%;
+            box-shadow: 0 12px 16px 0 #e93e3e, 0 17px 50px 0 #e93e3e;
+            background: #e93e3e;
+            border: 3px solid #e93e3e;
+            color: ivory;
+        }
+    </style>
+</head>
+
+
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 imgUp" style="text-align: center;">
+                <div class="imagePreview"></div>
+                <label class="button-go">
+                    Upload<input type="file" class="uploadFile img" value="Upload Photo"
+                        style="width: 0px;height: 0px;overflow: hidden;">
+                </label>
+            </div><!-- col-2 -->
+            <i class="fa fa-plus imgAdd"></i>
+        </div><!-- row -->
+
+
+    </div><!-- container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        $(".imgAdd").click(function () {
+            $(this).closest(".row").find('.imgAdd').before('<div class="col-4 imgUp" style="text-align: center;"><div class="imagePreview"></div><label class="button-go">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><br/><i class="button-delete">Delete</i></div>');
+     });
+
+        $(document).on("click", "i.button-delete", function () {
+            // 	to remove card
+            $(this).parent().remove();
+            // to clear image
+            // $(this).parent().find('.imagePreview').css("background-image","url('')");
+        });
+        $(function () {
+            $(document).on("change", ".uploadFile", function () {
+                var uploadFile = $(this);
+                var files = !!this.files ? this.files : [];
+                if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+                if (/^image/.test(files[0].type)) { // only image file
+                    var reader = new FileReader(); // instance of the FileReader
+                    reader.readAsDataURL(files[0]); // read the local file
+
+                    reader.onloadend = function () { // set image data as background of div
+                        //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
+                        uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
+                    }
+                }
+
+            });
+        });
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" style="text-align: center;">
+                <button class="button-delete"  onclick="location.href = 'CreateEvent.html'">BACK</button>
+            </div>
+            <div class="col-4">
+
+            </div>
+            <div class="col-4" style="text-align: center;">
+                <button class="button-go"  onclick="location.href = 'CreateEvent.html'">SAVE</button>
+            </div>
+        </div>
+        
+    </div>
+  
+
+
+</body>
