@@ -30,4 +30,10 @@ public class ClubManagerController {
     public void addClubManager(@RequestBody ClubManager clubManager) {
         clubManagerService.addClubManager(clubManager);
     }
+
+    @GetMapping(path = "loginPasswordCheck/{email}/{password}")
+    public boolean loginPasswordCheck(@PathVariable("email") String email,
+                                      @PathVariable("password") String password) {
+        return clubManagerService.loginPasswordCheck(email, password);
+    }
 }

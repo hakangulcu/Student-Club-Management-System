@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class StudentService {
@@ -152,5 +153,33 @@ public class StudentService {
     @Transactional
     public void addNotificationToStudent(Notification notification, Student student) {
         student.getNotificationList().add(notification);
+    }
+
+    @Transactional
+    public void deleteActivityFromStudent(Activity activity, Long studentId) {
+        Student student = studentRepository.findById(studentId).orElse(null);
+
+        if(student == null)
+            throw new IllegalStateException("student does not exist");
+
+        student.getActivityList().remove(activity);
+    }
+
+    public boolean loginPasswordCheck(String email, String password) {
+        Student student = studentRepository.findStudentByEmail(email);
+        return student != null && Objects.equals(student.getPassword(), password);
+    }
+
+    @Transactional
+    public void removeClubFromStudent(Long studentId, Club club) {
+        Student student = studentRepository.findById(studentId).orElse(null);
+
+        if(student == null)
+            throw new IllegalStateException("student does not exist");
+
+        if(student.getClubList().contains(club))
+            student.getClubList().remove(club);
+        else
+            throw new IllegalStateException("student is not a member of club");
     }
 }

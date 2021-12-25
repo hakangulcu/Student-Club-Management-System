@@ -17,6 +17,7 @@ public class Description {
     private Long id;
 
     private String textDescription;
+    private String guests;
 
     @OneToOne
     private Activity activity;                          // DONE?

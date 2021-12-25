@@ -30,13 +30,13 @@ public class Activity {
     private Integer averageRate;
     private String place;
 
-    @ManyToMany
+
+    @ManyToMany(mappedBy = "activityList")
     private List<Club> organizerClubList;   // DONE?
 
     // @JsonBackReference
     @JsonIgnore
-    // @ManyToMany(cascade = CascadeType.ALL)
-    @ManyToMany
+    @ManyToMany(mappedBy = "activityList")
     private List<Student> participantList;      // DONE
 
     @OneToOne

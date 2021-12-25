@@ -85,6 +85,7 @@ public class DescriptionService {
             throw new IllegalStateException("activity description does not match description");
     }
 
+    /*
     @Transactional
     public void addClubToDescription(Description description, Club club) {
         if(Objects.equals(club.getClubDescription().getId(), description.getId())) {
@@ -93,4 +94,5 @@ public class DescriptionService {
 
         throw new IllegalStateException("club does not have the specified description");
     }
+     */
 }

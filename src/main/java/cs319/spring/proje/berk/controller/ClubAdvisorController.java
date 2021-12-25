@@ -36,4 +36,10 @@ public class ClubAdvisorController {
     }
 
      */
+
+    @GetMapping(path = "loginPasswordCheck/{email}/{password}")
+    public boolean loginPasswordCheck(@PathVariable("email") String email,
+                                      @PathVariable("password") String password) {
+        return clubAdvisorService.loginPasswordCheck(email, password);
+    }
 }
