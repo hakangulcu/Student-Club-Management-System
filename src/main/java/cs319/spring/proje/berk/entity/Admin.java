@@ -12,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table
 public class Admin extends User {
 
     // @OneToMany

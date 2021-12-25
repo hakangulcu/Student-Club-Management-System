@@ -4,7 +4,6 @@ import cs319.spring.proje.berk.entity.Activity;
 import cs319.spring.proje.berk.entity.Club;
 import cs319.spring.proje.berk.entity.Notification;
 import cs319.spring.proje.berk.entity.Student;
-import cs319.spring.proje.berk.repository.ActivityRepository;
 import cs319.spring.proje.berk.repository.ClubRepository;
 import cs319.spring.proje.berk.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,14 @@ public class StudentService {
     private final StudentRepository studentRepository;
     private final ClubService clubService;
     private final ActivityService activityService;
+    private final ClubRepository clubRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository, ClubService clubService, ActivityService activityService) {
+    public StudentService(StudentRepository studentRepository, ClubService clubService, ActivityService activityService, ClubRepository clubRepository) {
         this.studentRepository = studentRepository;
         this.clubService = clubService;
         this.activityService = activityService;
+        this.clubRepository = clubRepository;
     }
 
     public List<Student> listStudents() {
@@ -51,9 +52,11 @@ public class StudentService {
             studentByEmail.setPassword(student.getPassword());
 
             // Lombok is a little weird when it comes to creating getters and setters for boolean fields
-            studentByEmail.setManager(student.isManager());
+            /*studentByEmail.setManager(student.isManager());
             studentByEmail.setAdmin(student.isAdmin());
             studentByEmail.setAdvisor(student.isAdvisor());
+
+             */
         }
     }
 
@@ -97,14 +100,15 @@ public class StudentService {
     }
 
     @Transactional
-    public void addClubToStudent(Long studentId, Long clubId) {
+    public void addClubToStudent(Long studentId, Club club) {
         Student studentById = studentRepository.findById(studentId).orElse(null);
         if(studentById == null)
             throw new IllegalStateException("student does not exist");
 
-        Club clubById = clubService.getClub(clubId);
-        studentById.getClubList().add(clubById);
-        studentById.getIsFavoriteList().add(false);
+        if(!studentById.getClubList().contains(club)) {
+            studentById.getClubList().add(club);
+            studentById.getIsFavoriteList().add(false);
+        }
     }
 
     @Transactional
@@ -134,13 +138,14 @@ public class StudentService {
     }
 
     @Transactional
-    public void addActivityToStudent(Long studentId, Long activityId) {
+    public void addActivityToStudent(Long studentId, Activity activity) {
         Student student = studentRepository.findById(studentId).orElse(null);
-
         if(student == null)
             throw new IllegalStateException("student does not exist");
 
-        student.getActivityList().add(activityService.getActivity(activityId));
+        // student joins the activity if they didn't join before
+        if(!student.getActivityList().contains(activity))
+            student.getActivityList().add(activity);
     }
 
     public Long getStudentIdByEmail(String email) {
@@ -181,5 +186,20 @@ public class StudentService {
             student.getClubList().remove(club);
         else
             throw new IllegalStateException("student is not a member of club");
+    }
+
+    public List<Club> getUnattendedClubs(Long studentId) {
+        Student student = studentRepository.findById(studentId).orElse(null);
+        if(student == null)
+            throw new IllegalStateException("student does not exist");
+
+        List<Club> unattendedClubs = new ArrayList<>();
+
+        for(Club club : clubRepository.findAll()) {
+            if(!student.getClubList().contains(club))
+                unattendedClubs.add(club);
+        }
+
+        return unattendedClubs;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "clubs")
 public class ClubController {
@@ -15,14 +16,16 @@ public class ClubController {
     private final DescriptionService descriptionService;
     private final FAQService faqService;
     private final ClubCardService clubCardService;
+    private final ClubManagerService clubManagerService;
 
     @Autowired
-    public ClubController(ClubService clubService, ActivityService activityService, DescriptionService descriptionService, FAQService faqService, ClubCardService clubCardService) {
+    public ClubController(ClubService clubService, ActivityService activityService, DescriptionService descriptionService, FAQService faqService, ClubCardService clubCardService, ClubManagerService clubManagerService) {
         this.clubService = clubService;
         this.activityService = activityService;
         this.descriptionService = descriptionService;
         this.faqService = faqService;
         this.clubCardService = clubCardService;
+        this.clubManagerService = clubManagerService;
     }
 
     @GetMapping
@@ -48,8 +51,9 @@ public class ClubController {
     @PutMapping(path = "addActivityToClub/{activityId}/{clubId}")
     public void addActivityToClub(@PathVariable("activityId") Long activityId,
                                   @PathVariable("clubId") Long clubId) {
+        Activity activity = activityService.getActivity(activityId);
         Club clubById = clubService.getClub(clubId);
-        clubService.addActivityToClub(activityId, clubId);
+        clubService.addActivityToClub(activity, clubId);
         // activityService.addClubToActivity(clubById, activityId);
     }
 
@@ -83,17 +87,23 @@ public class ClubController {
         clubCardService.addClubToClubCard(clubCard, club);
     }
 
-
-    // TODO: implement this
-    @PutMapping(path = "addClubManagerToClub/{clubId}/{clubManagerId}")
+    /*
+    @PutMapping(path = "addClubManagerToClub/{clubManagerId}/{clubId}")
     public void addClubManagerToClub(@PathVariable("clubId") Long clubId,
                                      @PathVariable("clubManagerId") Long clubManagerId) {
-        // TODO
-
+        ClubManager clubManager = clubManagerService.getClubManager(clubManagerId);
+        clubService.addClubManagerToClub(clubManager, clubId);
     }
+
+     */
 
     @GetMapping(path = "listActivities/{clubId}")
     public List<Activity> listActivities(@PathVariable("clubId") Long clubId) {
         return clubService.listActivities(clubId);
+    }
+
+    @GetMapping(path = "listStudentsInClub/{clubId}")
+    public List<Student> listStudentsInClub(@PathVariable("clubId") Long clubId) {
+        return clubService.listStudentsInClub(clubId);
     }
 }

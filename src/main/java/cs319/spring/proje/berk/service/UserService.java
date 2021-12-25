@@ -39,9 +39,12 @@ public class UserService {
             userById.setUserId(user.getUserId());
             userById.setEmail(user.getEmail());
             userById.setPassword(user.getPassword());
+            /*
             userById.setManager(user.isManager());
             userById.setAdmin(user.isAdmin());
             userById.setAdvisor(user.isAdvisor());
+
+             */
         }
     }
 

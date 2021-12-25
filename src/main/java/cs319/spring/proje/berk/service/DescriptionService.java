@@ -73,10 +73,10 @@ public class DescriptionService {
 
         if(description == null)
             throw new IllegalStateException("description does not exist");
-
         description.getVisualElementsList().add(visualElementService.getVisualElement(visualElementId));
     }
 
+    /*
     @Transactional
     public void addActivityToDescription(Activity activity, Description description) {
         if(activity.getActivityDescription() == description)
@@ -84,6 +84,8 @@ public class DescriptionService {
         else
             throw new IllegalStateException("activity description does not match description");
     }
+
+     */
 
     /*
     @Transactional

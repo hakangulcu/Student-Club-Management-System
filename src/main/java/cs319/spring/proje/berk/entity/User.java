@@ -26,10 +26,13 @@ public class User implements Serializable {
     private Integer userId;
     private String email;
     private String password;
+    /*
     private boolean isManager;
     private boolean isAdmin;
     private boolean isAdvisor;
 
+
+     */
 
     @OneToMany
     private List<Notification> notificationList;
