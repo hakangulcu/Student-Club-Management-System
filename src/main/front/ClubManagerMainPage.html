@@ -12,10 +12,13 @@
 
     <link rel="stylesheet" href="ClubManagerMainPage.css">
     <link rel="stylesheet" href="navbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="FavoritesPageS.js" defer></script>
 
 </head>
 
-<body>
+<body onload="getData()" >
     <nav>
         <a href="ClubManagerMainPage.html">Main Page</a>
         <a href="ClubMembersPage.html">club members</a>
@@ -32,6 +35,12 @@
                     <img src="bilkent-amblem.jpg">
                 </div>
             </div>
+            <div class="col">
+                <div class="col-btn">
+                    <button class="button-go" onclick="location.href = 'CreateEvent.html'">Create New Event</button>
+                    <button class="button-go" onclick="location.href = 'MyActivityDetails.html'">Manage Event</button>
+                </div>
+            </div>
         </div>
         <div class="row ">
             <div class="col">
@@ -45,22 +54,7 @@
                                 <th scope="col">ID</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tarık</td>
-                                <td>Karali</td>
-                                <td>21703937</td>
-                            </tr>
-                            <tr>
-                                <td>Tarık</td>
-                                <td>Karali</td>
-                                <td>21703937</td>
-                            </tr>
-                            <tr>
-                                <td>Tarık</td>
-                                <td>Karali</td>
-                                <td>21703937</td>
-                            </tr>
+                        <tbody id="tbody">
                         </tbody>
                     </table>
                 </div>
@@ -76,22 +70,8 @@
                                 <th scope="col">ORGANIZATOR</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>11.11.2022</td>
-                                <td>Meeting</td>
-                                <td>TDP</td>
-                            </tr>
-                            <tr>
-                                <td>11.11.2022</td>
-                                <td>Meeting</td>
-                                <td>TDP</td>
-                            </tr>
-                            <tr>
-                                <td>11.11.2022</td>
-                                <td>Meeting</td>
-                                <td>TDP</td>
-                            </tr>
+                        <tbody id="tobbybest">
+
                         </tbody>
                     </table>
                 </div>
@@ -106,12 +86,7 @@
                     <!--- CALENDAR WILL BE HERE --->
                 </div>
             </div>
-            <div class="col">
-                <div class="col-btn">
-                    <button class="button-go" onclick="location.href = 'CreateEvent.html'">Create New Event</button>
-                    <button class="button-go" onclick="location.href = 'MyActivityDetails.html'">Manage Event</button>
-                </div>
-            </div>
+
         </div>
     </div>
     </div>
