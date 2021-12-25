@@ -24,6 +24,8 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="./src/bootstrap-input-spinner.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="ClubPage.js" defer></script>
     <style>
         body {
             background-color: #000000;
@@ -168,14 +170,14 @@
             <div class="col-md-6">
                 <label class="labels">Club Description</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="textarea1" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea class="textarea" id="clubDescription" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
             <div class="col-md-6">
                 <label class="labels">Mission</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="textarea" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea class="textarea" id="mission" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
@@ -185,14 +187,14 @@
             <div class="col-md-6">
                 <label class="labels">Vision</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="textarea1" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea class="textarea" id="vision" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
             <div class="col-md-6">
                 <label class="labels">Past Activities</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="textarea" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea class="textarea" id="pastActivities" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
@@ -204,7 +206,7 @@
 
         </div>
         <div class="col" style="text-align: center;">
-            <button class="button-go" onclick="location.href = 'MyActivityDetails.html'">SAVE</button>
+            <button class="button-go" id = "saveButtonClubPage">SAVE</button>
         </div>
     </div>
     </div>
