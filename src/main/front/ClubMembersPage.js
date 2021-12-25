@@ -13,11 +13,11 @@ const getData = () => {
 
 
             for (var i = 0; i < response.data.length; i++) {
-                var name = response.data[i].activityDescription;
-                var surname = response.data[i].activityName;
-                var sid = response.data[i].activityCapacity;
-                var email = response.data[i].activityDate;
-                var dep = response.data[i].activityPlace;
+                var name = response.data[i].name;
+                var surname = response.data[i].surname;
+                var sid = response.data[i].userId;
+                var email = response.data[i].email;
+                var dep = response.data[i].department;
                 const line31 = document.createElement('line31');
                 line31.innerHTML = '<tr>\n' +
                     '                <th scope="col">'+ name+'</th>\n' +
