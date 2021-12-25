@@ -30,7 +30,7 @@ const getData = () => {
         const line32 = document.createElement('line32');
         line32.innerHTML = '<tr><td>'+date+'</td><td>'+desc+'</td><td>'+club+'</td> </tr>';
         tobbybest.appendChild(line32);
-            ;
+
         }
     )
 };
