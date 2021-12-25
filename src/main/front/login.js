@@ -21,6 +21,7 @@ var currentID;
 var now = new Date();
 now.setMonth(now.getMonth()+1);
 
+
 const getLoginResult = () => {
   axios.get('https://projectdeneme.herokuapp.com/clubManagers/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
   console.log(response);
@@ -40,6 +41,7 @@ const getLoginResult = () => {
   console.log(error);
   });
 };
+
 
 function getID(usern){
   axios.get('https://projectdeneme.herokuapp.com/clubManagers/getClubManagerIdByEmail/' + usern).then(function(response){
