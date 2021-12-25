@@ -22,10 +22,11 @@ const getData = () => {
 
             console.log(response);
 
-
-        var date = response.data[i].activityDate;
-        var desc = response.data[i].activityDesc;
-        var club = response.data[i].club;
+            for (var i = 0; i < response.data.length; i++) {
+            var date = response.data[i].activityDate;
+            var desc = response.data[i].activityDesc;
+            var club = response.data[i].club;
+            }
 
         const line32 = document.createElement('line32');
         line32.innerHTML += '<tr><td>'+date+'</td><td>'+desc+'</td><td>'+club+'</td> </tr>';

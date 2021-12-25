@@ -1,4 +1,3 @@
-
 let tab = document.querySelector(".tab-form");
 let tabHeader = tab.querySelector(".tab-header");
 let tabHeaderElements = tab.querySelectorAll(".tab-header > div");
@@ -14,50 +13,52 @@ for(let i=0;i<tabHeaderElements.length;i++){
   });
 }
 
-function validate(){
-    var username = document.getElementById("userMail");
-    var password = document.getElementById("password");
-}
+var username = document.getElementById("userMail");
+var pass = document.getElementById("password");
+var login = document.getElementById("login");
+var userIDcookie;
+var currentID;
+var now = new Date();
+now.setMonth(now.getMonth()+1);
 
-const getDataCreateActivity = () => {
-  console.log("salkjdsakjdsakj");
-  axios.get('https://projectdeneme.herokuapp.com/activities/addNewActivity').then(function (response) {
-      console.log(response);
-
+const getLoginResult = () => {
+  axios.get('https://projectdeneme.herokuapp.com/clubManagers/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
+  console.log(response);
+  console.log(response.data);
+  if(response.data === true){
+    //createCookie(username.value, pass.value);
+    getID(username.value);
+    document.cookie = "name="+userIDcookie +";path=/" + ";expires="+expire.toUTCString();
+    document.location.href = "ClubManagerMainPage.html";
   }
-
-      .catch(function (error) {
-          // handle error
-          console.log(error);
-      });
+  else{
+    alert("E-mail or password is wrong!")
+  }
+  })
+  .catch(function (error) {
+  // handle error
+  console.log(error);
+  });
 };
-/** 
-function createCookie(name,pwds){
-  let mail = document.getElementById("userMail");
-  let pwd = document.getElementById("password");
 
+function getID(usern){
+  axios.get('https://projectdeneme.herokuapp.com/clubManagers/getClubManagerIdByEmail/' + usern).then(function(response){
+    console.log(response);
+    currentID = response.data;
+    userIDcookie = currentID;
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+    });
+    
+  };
 
-  today = new Date();
-  var expire = new Date();
-  expire.setTime(today.getTime() + 3600000*24*15);
  
-
-  document.cookie = "name="+mail.value+";path=/" + ";expires="+expire.toUTCString();
-  document.cookie = "password="+encodeURI(pwd.value)+";path=/" + ";expires="+expire.toUTCString();
+  //document.cookie = "name="+name.value+";path=/" + ";expires="+expire.toUTCString();
+  //document.cookie = "password="+encodeURI(pwd.value)+";path=/" + ";expires="+expire.toUTCString();
   //can only write one entity at a time (name, pass)
-}  
 
 
-//event handler for page load - runs on every refresh
-window.onload = function(){
+login.addEventListener('click', getLoginResult);
 
-  //for now
-  var uname = 'berk@hotmail.com';
-  var pass = 'hakan123';
-
-  document.getElementById('user').value = uname;
-  document.getElementById('pd').value = pass;
-
-}
-
-*/
