@@ -16,20 +16,19 @@ for(let i=0;i<tabHeaderElements.length;i++){
 var username = document.getElementById("userMail");
 var pass = document.getElementById("password");
 var login = document.getElementById("login");
-var userIDcookie;
 var currentID;
-var now = new Date();
-now.setMonth(now.getMonth()+1);
+
+
 
 
 const getLoginResult = () => {
   axios.get('https://projectdeneme.herokuapp.com/clubManagers/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
   console.log(response);
   console.log(response.data);
-  if(response.data == true){
+  if(response.data === true){
     getID(username.value);
-    document.cookie = "name="+userIDcookie +";path=/" + ";expires="+expire.toUTCString();
-    document.location.href = "ClubManagerMainPage.html";
+
+ document.location.href = "ClubManagerMainPage.html";
   }
   else{
     alert("E-mail or password is wrong!")
@@ -43,17 +42,28 @@ const getLoginResult = () => {
 
 
 function getID(usern){
+
   axios.get('https://projectdeneme.herokuapp.com/clubManagers/getClubManagerIdByEmail/' + usern).then(function(response){
-    console.log(response);
+    console.log(response.data);
     currentID = response.data;
-    userIDcookie = currentID;
+    console.log(currentID);
+
+
+  console.log(currentID);
+  axios.get('https://projectdeneme.herokuapp.com/clubManagers/getClub/' + currentID).then(function(response) {
+    console.log(response);
+    var clubId = "" + response.data.id;
+    console.log(typeof(clubId));
+    console.log(clubId);
+    sessionStorage.setItem("clubId", clubId );
+
   })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-    });
-    
-  };
+  })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+};
 
  
   //document.cookie = "name="+name.value+";path=/" + ";expires="+expire.toUTCString();

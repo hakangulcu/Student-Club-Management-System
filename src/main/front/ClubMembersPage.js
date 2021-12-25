@@ -1,13 +1,14 @@
 
 const tbody = document.getElementById("tbody");
-
+const id= sessionStorage.getItem("clubId");
+console.log(id);
 
 
 
 const getData = () => {
 
 
-    axios.get('https://projectdeneme.herokuapp.com/clubs/listStudentsInClub/1').then(function (response) {
+    axios.get('https://projectdeneme.herokuapp.com/clubs/listStudentsInClub/'+id).then(function (response) {
 
             console.log(response);
 
@@ -19,16 +20,7 @@ const getData = () => {
                 var email = response.data[i].email;
                 var dep = response.data[i].department;
                 const line31 = document.createElement('line31');
-                line31.innerHTML += '<tr>\n' +
-                    '                <th scope="col">'+ name+'</th>\n' +
-                    '                <th scope="col"> '+surname+'</th>\n' +
-                    '                <th scope="col">'+sid+'</th>\n' +
-                    '                <th scope="col">'+email+'</th>\n' +
-                    '                <th scope="col">'+dep+'</th>\n' +
-                    '                <td style="text-align: center;"><button class="remove">\n' +
-                    '                    Remove from Club\n' +
-                    '                </button></td>\n' +
-                    '            </tr>\n';
+                line31.innerHTML = '<tr><th scope="col">'+ name +'</th><th scope="col"> '+ surname +'</th><th scope="col">'+ sid +'</th><th scope="col">'+ email +'</th><th scope="col">'+ dep +'</th><td style="text-align: center;"><button class="remove">Remove from Club</button></td></tr>';
                 tbody.appendChild(line31);
             }
             ;
