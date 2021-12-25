@@ -7,6 +7,7 @@ const quotaText = document.getElementById('quotaText');
 const placeText = document.getElementById('placeText');
 const ge250Text = document.getElementById('ge250Text');
 const saveButton = document.getElementById('saveButton');
+
  /** 
 const getDataCreateActivity = () => {
     console.log("salkjdsakjdsakj");
@@ -22,7 +23,8 @@ const getDataCreateActivity = () => {
 };
 */
 async function putActivityData() {
-    console.log($('#date').val());
+    console.log(typeof($('#date').val()));
+    console.log(typeof(quotaText.value));
     const res = await axios.put('https://projectdeneme.herokuapp.com/activities/addNewActivity', {
     
     activityName: activityNameText.value,
