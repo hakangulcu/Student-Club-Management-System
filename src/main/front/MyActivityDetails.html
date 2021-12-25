@@ -12,7 +12,9 @@
 
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="card-hover.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="MyActivityDetails.js" defer></script>
 </head>
 
 <body>
@@ -31,130 +33,17 @@
                 <th scope="col"><b>Activity List</b></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
             <tr style="height: 20%;">
                 <td style="width: 75%;">
 
                     <div class="card">
                     
                         <div class="container1">
-                            <h1 class="activity-name">Activity Name</h1>
-                            <p>Description: A short-circuit evaluation of an expression is one in which the result is determined without
-                                evaluating all of the operands and/or operators.
-        
-                                In this homework assignment, you will compare the behavior of Short-Circuit Evaluation in five
-                                different programming languages: Dart, Javascript, PHP, Python, and Rust. You will investigate
-                                how the following design issues are addressed in these programming languages:</p>
-                            <h1 class="neon">Quota : 27 / 55 </h1>
-                            <h1 class="neon">Deadline : 11.11.2021 </h1>
-
-    
-                        </div>
-                        <div class="container">
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'CustomizeEvent.html'"> Customize Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn2"> Delete Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'ActivityParticipantList.html'";> Show Participant</button></div>
-                        </div>
-                </td>
-
-            </tr>
-
-            <tr style="height: 20%;">
-                <td >
-
-                    <div class="card">
-                    
-                        <div class="container1">
-                            <h1 class="activity-name">Activity Name</h1>
-                            <p>Description: A short-circuit evaluation of an expression is one in which the result is determined without
-                                evaluating all of the operands and/or operators.
-        
-                                In this homework assignment, you will compare the behavior of Short-Circuit Evaluation in five
-                                different programming languages: Dart, Javascript, PHP, Python, and Rust. You will investigate
-                                how the following design issues are addressed in these programming languages:</p>
-                            <h1 class="neon">Quota : 27 / 55 </h1>
-                            <h1 class="neon">Deadline : 11.11.2021 </h1>
-
-    
-                        </div>
-
-                        <div class="container">
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'CustomizeEvent.html'"> Customize Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn2"> Delete Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'ActivityParticipantList.html'";> Show Participant</button></div>
-                        </div>
-                </td>
-  
-            </tr>
-
-            <tr style="height: 20%;">
-                <td style="text-align: center;">
-
-                    <div class="card" style="text-align: center;">
-                    
-                        <div class="container1">
-                            <h1 class="activity-name">Activity Name</h1>
-                            <p>Description: A short-circuit evaluation of an expression is one in which the result is determined without
-                                evaluating all of the operands and/or operators.
-        
-                                In this homework assignment, you will compare the behavior of Short-Circuit Evaluation in five
-                                different programming languages: Dart, Javascript, PHP, Python, and Rust. You will investigate
-                                how the following design issues are addressed in these programming languages:</p>
-                            <h1 class="neon">Quota : 27 / 55 </h1>
-                            <h1 class="neon">Deadline : 11.11.2021 </h1>
-
-    
-                        </div>
-
-                        <div class="container">
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'CustomizeEvent.html'"> Customize Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn2"> Delete Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'ActivityParticipantList.html'";> Show Participant</button></div>
-                        </div>
-                </td>
-              
-            </tr>
-            <tr style="height: 20%;">
-                <td style="width: 75%;">
-
-                    <div class="card">
-                    
-                        <div class="container1">
-                            <h1 class="activity-name">Activity Name</h1>
-                            <p>Description: A short-circuit evaluation of an expression is one in which the result is determined without
-                                evaluating all of the operands and/or operators.
-        
-                                In this homework assignment, you will compare the behavior of Short-Circuit Evaluation in five
-                                different programming languages: Dart, Javascript, PHP, Python, and Rust. You will investigate
-                                how the following design issues are addressed in these programming languages:</p>
-                            <h1 class="neon">Quota : 27 / 55 </h1>
-                            <h1 class="neon">Deadline : 11.11.2021 </h1>
-    
-                        </div>
-                        <div class="container">
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'CustomizeEvent.html'"> Customize Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn2"> Delete Event</button></div>
-                            <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'ActivityParticipantList.html'";> Show Participant</button></div>
-                        </div>
-                </td>
-                
-            </tr>
-            <tr style="height: 20%;">
-                <td >
-
-                    <div class="card">
-                    
-                        <div class="container1">
-                            <h1 class="activity-name">Activity Name</h1>
-                            <p>Description: A short-circuit evaluation of an expression is one in which the result is determined without
-                                evaluating all of the operands and/or operators.
-        
-                                In this homework assignment, you will compare the behavior of Short-Circuit Evaluation in five
-                                different programming languages: Dart, Javascript, PHP, Python, and Rust. You will investigate
-                                how the following design issues are addressed in these programming languages:</p>
-                            <h1 class="neon">Quota : 27 / 55 </h1>
-                            <h1 class="neon">Deadline : 11.11.2021 </h1>
-    
+                            <h1 class="activity-name"><span id="activityname"> activityname</span></h1>
+                            <p><span id="descr">description </span></p>
+                            <h1 class="neon"><span id="quota">Quota : 27 / 55</span> </h1>
+                            <h1 class="neon"><span id="date">date</span> </h1>
                         </div>
                         <div class="container">
                             <div class="row" style="text-align: center;"><button class="hidden-btn" onclick="location.href = 'CustomizeEvent.html'"> Customize Event</button></div>
@@ -163,13 +52,11 @@
                         </div>
                     </div>
                 </td>
-            
+
             </tr>
 
-
-
-
-
+        </tbody>
+    </table>
 
 </body>
 
