@@ -7,6 +7,7 @@ const quotaText = document.getElementById('quotaText');
 const placeText = document.getElementById('placeText');
 const ge250Text = document.getElementById('ge250Text');
 const saveButton = document.getElementById('saveButton');
+const asdsadsa = document.getElementById('saveButton');
 
 const getDataCreateActivity = () => {
     console.log("salkjdsakjdsakj");
@@ -21,14 +22,38 @@ const getDataCreateActivity = () => {
     });
 };
 
-/** 
-https://projectdeneme.herokuapp.com/activities/addNewActivity
-function putActivityData() {
-    axios.post('https://projectdeneme.herokuapp.com/activities/addNewActivity', {
-       
-    },
-    })
-}
-*/
 
-saveButton.addEventListener('click', getDataCreateActivity);
+const sendDataCreateActivity = () => {
+    axios
+      .put(
+        'https://projectdeneme.herokuapp.com/activities/addNewActivity',
+        {
+            'Access-Control-Allow-Origin': '*',    
+          activityName: activityNameText.value,
+          date: datepicker.value,
+          capacity: quotaText.value,
+          ge250Point: ge250Text.value,
+          averageRate: "",
+          place: placeText.value,
+          
+          // password: 'pistol'
+          //activityName :
+        },
+        {
+          // headers: {
+          //   'Content-Type': 'application/json'
+          // }
+        }
+      )
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err, err.response);
+      });
+  };
+
+
+asdsadsa.addEventListener('click', getDataCreateActivity);
+saveButton.addEventListener('click', sendDataCreateActivity);
+asdsadsa.addEventListener('click', getDataCreateActivity);
