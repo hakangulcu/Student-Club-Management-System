@@ -1,5 +1,5 @@
 
-const logotest = document.getElementById("asdas");
+
 const pastact = document.getElementById("pastact1");
 const upact = document.getElementById("upact1");
 
@@ -34,7 +34,7 @@ const getData = () => {
             const line31 = document.createElement('line31');
             line31.innerHTML ='<u1 class="list-group list-group-horizontal mb-3"><li class="list-group-item col-lg-10 col-sm-2 col-md-2  col-4 "style="border: none"> '+ activityname + '</li><li class="list-group-item col-lg-2 col-sm-2 col-md-2   "style="border: none"><button type="button" class="btn btn-danger btn-outline-dark " style="color: white">Show</button></li></u1>';
 
-            if(activitydate < today) {
+            if(activitydate > today) {
                 pastact.appendChild(line31);}
             else {
                 upact.appendChild(line31); }
@@ -44,4 +44,3 @@ const getData = () => {
 
 
 
-logotest.addEventListener('click', getData)
