@@ -7,7 +7,7 @@ const tbody = document.getElementById("tbody");
 const getData = () => {
 
 
-    axios.get('https://projectdeneme.herokuapp.com/activities/getParticipantList/1').then(function (response) {
+    axios.get('https://projectdeneme.herokuapp.com/clubs/listStudentsInClub/1').then(function (response) {
 
             console.log(response);
 
@@ -26,10 +26,10 @@ const getData = () => {
                     '                <th scope="col">'+email+'</th>\n' +
                     '                <th scope="col">'+dep+'</th>\n' +
                     '                <td style="text-align: center;"><button class="remove">\n' +
-                    '                    Remove from Activity\n' +
+                    '                    Remove from Club\n' +
                     '                </button></td>\n' +
                     '            </tr>\n';
-                    tbody.appendChild(line31);
+                tbody.appendChild(line31);
             }
             ;
         }
