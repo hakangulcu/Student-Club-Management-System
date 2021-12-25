@@ -7,7 +7,8 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="allActivitiesAxios.js" defer></script>
 
   <title>BCMS22</title>
 </head>
@@ -58,7 +59,6 @@
   <div class="container-fluid col-lg-12 col-12">
 
   <u1 style="color: #ffffff; font-size: large;font-family: SansSerif" class="list-group list-group-horizontal  mt-5 fs-4">
-
     <li class="list-group-item  col-lg-2 col-sm-2 col-md-2 col-4 text-center" style="border: none"> Club Name</li>
     <li class="list-group-item col-lg-2 col-sm-2 col-md-2  col-4 text-center"style="border: none"> Event Name</li>
     <li class="list-group-item col-lg-2 col-sm-2 col-md-2 d-none d-sm-block text-center"style="border: none"> Date</li>
@@ -67,6 +67,7 @@
     <li class="list-group-item col-lg-1 col-sm-1 col-md-1  d-none d-sm-block text-center"style="border: none;font-size: 18px" > GE250/1</li>
   </u1>
   </div>
+
   <div class="container-fluid col-lg-12 col-12 mt-5 ">
 
     <ul class="list-group list-group-horizontal mb-4  "  >
@@ -77,7 +78,7 @@
       <li class="list-group-item col-lg-1 col-sm-1 col-md-1 d-none d-sm-block text-center  col-1" style="border: none">49/50</li>
       <li class="list-group-item col-lg-1 col-sm-1 col-md-1 d-none d-sm-block text-center  col-1" style="border: none">20</li>
       <li class="list-group-item col-lg-2 col-2 justify-content-center d-none  d-sm-block" style="border: none">
-        <button type="button" class="btn btn-danger btn-outline-dark justify-content-center" style="color: white">Join</button>
+        <button id = "joinButton" type="button" class="btn btn-danger btn-outline-dark justify-content-center" style="color: white">Join</button>
       </li>
       <li class="list-group-item col-lg-2 col-2 d-flex justify-content-start d-block d-sm-none" style="border: none">
         <button type="button" class="btn btn-danger btn-outline-dark justify-content-center" style="color: white">Details</button>
