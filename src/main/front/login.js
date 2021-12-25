@@ -26,8 +26,7 @@ const getLoginResult = () => {
   axios.get('https://projectdeneme.herokuapp.com/clubManagers/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
   console.log(response);
   console.log(response.data);
-  if(response.data === true){
-    //createCookie(username.value, pass.value);
+  if(response.data == true){
     getID(username.value);
     document.cookie = "name="+userIDcookie +";path=/" + ";expires="+expire.toUTCString();
     document.location.href = "ClubManagerMainPage.html";
