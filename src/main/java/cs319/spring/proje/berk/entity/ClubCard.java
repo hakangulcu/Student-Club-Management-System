@@ -17,6 +17,8 @@ public class ClubCard {
 
     private String briefDescription;
     private String logoPath;
+    private String mission;
+    private String vision;
 
     @OneToOne
     private Club club;      // done?

@@ -1,9 +1,6 @@
 package cs319.spring.proje.berk.controller;
 
-import cs319.spring.proje.berk.entity.Club;
-import cs319.spring.proje.berk.entity.ClubCard;
-import cs319.spring.proje.berk.entity.Description;
-import cs319.spring.proje.berk.entity.FAQ;
+import cs319.spring.proje.berk.entity.*;
 import cs319.spring.proje.berk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,9 +50,10 @@ public class ClubController {
                                   @PathVariable("clubId") Long clubId) {
         Club clubById = clubService.getClub(clubId);
         clubService.addActivityToClub(activityId, clubId);
-        activityService.addClubToActivity(clubById, activityId);
+        // activityService.addClubToActivity(clubById, activityId);
     }
 
+    /*
     @PutMapping(path = "addDescriptionToClub/{clubId}")
     public void addDescriptionToClub(@PathVariable("clubId") Long clubId,
                                      @RequestBody Description description) {
@@ -64,6 +62,8 @@ public class ClubController {
         clubService.addDescriptionToClub(description, club);
         descriptionService.addClubToDescription(description, club);
     }
+
+     */
 
     @PutMapping(path = "addFaqToClub/{clubId}")
     public void addFaqToClub(@PathVariable("clubId") Long clubId,
@@ -90,5 +90,10 @@ public class ClubController {
                                      @PathVariable("clubManagerId") Long clubManagerId) {
         // TODO
 
+    }
+
+    @GetMapping(path = "listActivities/{clubId}")
+    public List<Activity> listActivities(@PathVariable("clubId") Long clubId) {
+        return clubService.listActivities(clubId);
     }
 }

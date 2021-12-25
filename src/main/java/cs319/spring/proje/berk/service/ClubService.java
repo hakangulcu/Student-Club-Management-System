@@ -38,7 +38,7 @@ public class ClubService {
         else {
            clubByName.setClubCard(club.getClubCard());
            clubByName.setClubAdvisor(club.getClubAdvisor());
-           clubByName.setClubDescription(club.getClubDescription());
+           // clubByName.setClubDescription(club.getClubDescription());
            clubByName.setClubSchedule(club.getClubSchedule());
            clubByName.setClubManagerList(club.getClubManagerList());
            clubByName.setActivityList(club.getActivityList());
@@ -100,10 +100,12 @@ public class ClubService {
         clubById.getActivityList().add(activityById);
     }
 
+    /*
     @Transactional
     public void addDescriptionToClub(Description description, Club club) {
         club.setClubDescription(description);
     }
+     */
 
     @Transactional
     public void addFaqToClub(Club club, FAQ faq) {
@@ -113,5 +115,12 @@ public class ClubService {
     @Transactional
     public void addClubCardToClub(ClubCard clubCard, Club club) {
         club.setClubCard(clubCard);
+    }
+
+    public List<Activity> listActivities(Long clubId) {
+        Club club = clubRepository.findById(clubId).orElse(null);
+        if(club == null)
+            throw new IllegalStateException("club does not exist");
+        return club.getActivityList();
     }
 }

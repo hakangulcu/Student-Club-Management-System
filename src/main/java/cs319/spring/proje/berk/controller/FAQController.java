@@ -23,7 +23,7 @@ public class FAQController {
     }
 
     @GetMapping(path = "{faqId}")
-    public FAQ getFAQ(@PathVariable("faq") Long id) {
+    public FAQ getFAQ(@PathVariable("faqId") Long id) {
         return faqService.getFAQ(id);
     }
 

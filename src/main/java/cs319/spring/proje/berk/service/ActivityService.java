@@ -24,7 +24,7 @@ public class ActivityService {
 
     public List<Activity> listActivities() {
         List<Activity> activityList = activityRepository.findAll();
-        System.out.println("size is " + activityList.get(0).getParticipantList().size());
+        // System.out.println("size is " + activityList.get(0).getParticipantList().size());
 
         return activityRepository.findAll();
     }
@@ -154,5 +154,18 @@ public class ActivityService {
         if(activity == null) throw new IllegalStateException("activity does not exist");
 
         return activity.getParticipantList();
+    }
+
+    @Transactional
+    public void removeStudentFromActivity(Student student, Long activityId) {
+        Activity activity = activityRepository.findById(activityId).orElse(null);
+        if(activity == null)
+            throw new IllegalStateException("activity does not exist");
+
+        if(activity.getParticipantList().contains(student)) {
+            activity.getParticipantList().remove(student);
+        }
+        else
+            throw new IllegalStateException("student does not exist in activity participants list");
     }
 }

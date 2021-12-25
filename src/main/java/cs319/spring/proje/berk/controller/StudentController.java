@@ -67,12 +67,13 @@ public class StudentController {
     public List<Club> getFavoriteClubs(@PathVariable("studentId") Long id) {
         return studentService.getFavoriteClubs(id);
     }
-
+    /*
     @PutMapping(path = "addClub/{studentId}/{clubId}")
     public void addClub(@PathVariable("studentId") Long studentId,
                         @PathVariable("clubId") Long clubId) {
         studentService.addClubToStudent(studentId, clubId);
     }
+     */
 
     @PutMapping(path = "changeFavoriteStatus/{studentId}/{clubId}")
     public void changeFavoriteStatus(@PathVariable("studentId") Long studentId,
@@ -91,16 +92,16 @@ public class StudentController {
                                      @PathVariable("activityId") Long activityId) {
         studentService.addActivityToStudent(studentId, activityId);
 
-        Student student = studentService.getStudent(studentId);
-        activityService.addStudentToActivity(student, activityId);
+        //Student student = studentService.getStudent(studentId);
+        //activityService.addStudentToActivity(student, activityId);
     }
 
     @PutMapping(path = "addClubToStudent/{studentId}/{clubId}")
     public void addClubToStudent(@PathVariable("studentId") Long studentId,
                                  @PathVariable("clubId") Long clubId) {
         studentService.addClubToStudent(studentId, clubId);
-        Student student = studentService.getStudent(studentId);
-        clubService.addStudentToClub(student, clubId);
+        //Student student = studentService.getStudent(studentId);
+        //clubService.addStudentToClub(student, clubId);
     }
 
     @PutMapping(path = "addNotificationToStudent/{studentId}")
@@ -109,7 +110,26 @@ public class StudentController {
         notificationService.addNewNotification(notification);
         Student student = studentService.getStudent(studentId);
         studentService.addNotificationToStudent(notification, student);
-        notificationService.addStudentToNotification(notification, student);
+        //notificationService.addStudentToNotification(notification, student);
     }
 
+    @PutMapping(path = "deleteActivityFromStudent/{studentId}/{activityId}")
+    public void deleteActivityFromStudent(@PathVariable("studentId") Long studentId,
+                                          @PathVariable("activityId") Long activityId) {
+        Activity activity = activityService.getActivity(activityId);
+        studentService.deleteActivityFromStudent(activity, studentId);
+    }
+
+    @GetMapping(path = "loginPasswordCheck/{email}/{password}")
+    public boolean loginPasswordCheck(@PathVariable("email") String email,
+                                      @PathVariable("password") String password) {
+        return studentService.loginPasswordCheck(email, password);
+    }
+
+    @DeleteMapping(path = "removeClubFromStudent/{studentId}/{clubId}")
+    public void removeClubFromStudent(@PathVariable("studentId") Long studentId,
+                                      @PathVariable("clubId") Long clubId) {
+        Club club = clubService.getClub(clubId);
+        studentService.removeClubFromStudent(studentId, club);
+    }
 }

@@ -2,6 +2,7 @@ package cs319.spring.proje.berk.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,14 +18,24 @@ import java.util.List;
 @Entity
 public class Student extends User {
 
+    @JsonIgnore
     @ManyToMany
+    @JoinTable(
+            name = "club_student",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "club_id"))
     private List<Club> clubList;
 
     @ElementCollection
     private List<Boolean> isFavoriteList;
 
     // @ManyToMany(cascade = CascadeType.ALL)
+
     @ManyToMany
+    @JoinTable(
+            name = "activity_student",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "activity_id"))
     private List<Activity> activityList;
 
     @OneToMany(mappedBy = "student")

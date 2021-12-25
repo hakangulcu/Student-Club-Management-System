@@ -1,10 +1,7 @@
 package cs319.spring.proje.berk.controller;
 
 import cs319.spring.proje.berk.entity.*;
-import cs319.spring.proje.berk.service.ActivityService;
-import cs319.spring.proje.berk.service.CommentService;
-import cs319.spring.proje.berk.service.DescriptionService;
-import cs319.spring.proje.berk.service.EvaluationBarService;
+import cs319.spring.proje.berk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +14,15 @@ public class ActivityController {
     private final DescriptionService descriptionService;
     private final EvaluationBarService evaluationBarService;
     private final CommentService commentService;
+    private final StudentService studentService;
 
     @Autowired
-    public ActivityController(ActivityService activityService, DescriptionService descriptionService, EvaluationBarService evaluationBarService, CommentService commentService) {
+    public ActivityController(ActivityService activityService, DescriptionService descriptionService, EvaluationBarService evaluationBarService, CommentService commentService, StudentService studentService) {
         this.activityService = activityService;
         this.descriptionService = descriptionService;
         this.evaluationBarService = evaluationBarService;
         this.commentService = commentService;
+        this.studentService = studentService;
     }
 
     @GetMapping(path = "getActivityIdByName/{activityName}")
@@ -86,4 +85,14 @@ public class ActivityController {
     public List<Student> getParticipantList(@PathVariable("activityId") Long activityId) {
         return activityService.getParticipantList(activityId);
     }
+
+    /*
+    @PutMapping(path = "removeStudentFromActivity/{studentId}/{activityId}")
+    public void removeStudentFromActivity(@PathVariable("studentId") Long studentId,
+                                          @PathVariable("activityId") Long activityId) {
+        Student student = studentService.getStudent(studentId);
+        activityService.removeStudentFromActivity(student, activityId);
+    }
+
+     */
 }

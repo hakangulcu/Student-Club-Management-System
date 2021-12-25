@@ -1,5 +1,6 @@
 package cs319.spring.proje.berk.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,18 +21,27 @@ public class Club {
     private Long id;
     private String clubName;
 
+    @JsonIgnore
     @ManyToMany
+    @JoinTable(
+            name = "activity_club",
+            joinColumns = @JoinColumn(name = "club_id"),
+            inverseJoinColumns = @JoinColumn(name = "activity_id"))
     private List<Activity> activityList;        // done
 
-    @ManyToMany
+
+    @ManyToMany(mappedBy = "clubList")
     private List<Student> studentList;          // done
 
     @OneToOne
     private Schedule clubSchedule;              // TODO: club'ın schedule id'sinden endpointe yol var
 
 
-    @OneToOne
-    private Description clubDescription;        // done?
+    // @OneToOne
+    // private Description clubDescription;        // done?
+
+    private String clubTextDescription;
+    private String guests;
 
 
     @OneToMany(mappedBy = "club")
