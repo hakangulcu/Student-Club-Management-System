@@ -7,7 +7,7 @@ const tbody = document.getElementById("tbody");
 const getData = () => {
 
 
-    axios.get('https://projectdeneme.herokuapp.com/clubs/listActivities/1').then(function (response) {
+    axios.get('https://projectdeneme.herokuapp.com/clubs/listActivities').then(function (response) {
             var today = new Date();
             console.log(response);
 

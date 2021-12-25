@@ -12,10 +12,12 @@
 
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="searchBar.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="ActivityParticipantList.js" defer></script>
 </head>
 
-<body>
+<body onload="getData()">
     <nav>
         <a href="ClubManagerMainPage.html">Main Page</a>
         <a href="ClubMembersPage.html">club members</a>
@@ -33,8 +35,8 @@
    </div>
 
    <div class="row">
-    <table class="table table-dark table-hover">
-        <thead>
+    <table class="table table-dark table-hover" id="thead">
+        <thead >
             <tr>
                 <th scope="col">NAME</th>
                 <th scope="col">SURNAME</th>
@@ -46,83 +48,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
-            <tr>
-                <td>Tarık</td>
-                <td>Karali</td>
-                <td>21703937</td>
-                <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
-                <td>CS</td>
-                <td style="text-align: center;"><button class="remove">
-                    Remove from Activity
-                </button></td>
-            </tr>
+
         </tbody>
     </table>
    </div>
