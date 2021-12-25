@@ -95,27 +95,12 @@
         </div>
         <br/>
         <div class="row ">
+
             <div class="col">
-                <form style="color: white" >
-                    <div style="color: white" class="row form-group">
-                        <label style= "color: black" class="labels" for="date" class="col-sm-1 col-form-label">DATE</label>
-                            <div style="color: white" class="input-group date" id="datepicker">
-                                <input style="color: white" id = "date" type="text" class="form-control bg-dark">
-                                <span style="color: white" class="input-group-append">
-                                    <span style="color: white" class="input-group-text bg-dark">
-                                        <i style="color: white" class="fa fa-calendar"></i>
-                                    </span>
-                                </span>
-                            </div>
-
-                    </div>
-                </form>
-            <script type="text/javascript">
-                $(function() {
-                    $('#datepicker').datepicker({ format: 'yyyy-mm-dd'});
-                });
-
-            </script>
+                <label style= "color: black" class="labels">PLACE</label>
+                <div class="textarea_style">
+                    <textarea style="background-color: white; color:#000000;" class="textarea" id="placeText" rows="1" column="45" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
+                </div>
 
             </div>
             <div class="col">
@@ -126,11 +111,27 @@
         </div>
   
         <div class="row ">
-            <div class="col">
-                <label style= "color: black" class="labels">PLACE</label>
-                <div class="textarea_style">
-                    <textarea style="background-color: white; color:#000000;" class="textarea" id="placeText" rows="1" column="45" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
-                </div>
+            <div class="col container-fluid">
+                <form style="color: white" >
+                    <div style="color: white" class="row form-group mb-3" >
+                        <label style= "color: black" class="labels" for="date" class="col-sm-1 col-form-label">DATE</label>
+                        <div style="color: white;" class="input-group date" id="datepicker">
+                            <input style="color: white" id = "date" type="text" class="form-control bg-dark">
+                            <span style="color: white" class="input-group-append">
+                                    <span style="color: white" class="input-group-text bg-dark">
+                                        <i style="color: white" class="fa fa-calendar"></i>
+                                    </span>
+                                </span>
+                        </div>
+
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#datepicker').datepicker({ format: 'yyyy-mm-dd'});
+                    });
+
+                </script>
 
             </div>
             <div class="col">
