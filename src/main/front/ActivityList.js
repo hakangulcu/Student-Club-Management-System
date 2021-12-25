@@ -1,16 +1,12 @@
 
 const tbody2 = document.getElementById("tbody1");
 
-
-
-
 const getData = () => {
 
 
     axios.get('https://projectdeneme.herokuapp.com/clubs/listActivities/1').then(function (response) {
 
             console.log(response);
-
 
             for (var i = 0; i < response.data.length; i++) {
                 var activitydesc = response.data[i].activityDescription;
@@ -28,6 +24,37 @@ const getData = () => {
     )
 };
 
+async function putActivityListData(){
+    const res = await axios.put('#', {
 
+    })
+}
+
+/**
+ * async function putActivityData() {
+    var mydate = new Date($('#date').val());
+    console.log(mydate.toDateString());
+    const res = await axios.put('https://projectdeneme.herokuapp.com/activities/addNewActivity', {
+    
+    activityName: activityNameText.value,
+    date: mydate,
+     
+    capacity: quotaText.value,
+    ge250Point: ge250Text.value,
+      
+    //averageRate: guestText.value,
+    place: placeText.value,
+    
+    participantList: null,
+    activityDescription: null
+    
+})        .then(function (response) {
+    console.log(response);
+    
+})
+.catch(function (error) {
+    console.log(error);
+});
+ */
 
 
