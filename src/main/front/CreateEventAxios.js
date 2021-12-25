@@ -23,12 +23,12 @@ const getDataCreateActivity = () => {
 };
 */
 async function putActivityData() {
-    console.log(typeof($('#date').val()));
-    console.log(typeof(quotaText.value));
+    var mydate = new Date($('#date').val());
+    console.log(mydate.toDateString());
     const res = await axios.put('https://projectdeneme.herokuapp.com/activities/addNewActivity', {
     
     activityName: activityNameText.value,
-    date: $('#date').val(),
+    date: mydate,
      
     capacity: quotaText.value,
     ge250Point: ge250Text.value,
