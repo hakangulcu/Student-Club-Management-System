@@ -27,8 +27,7 @@ const sendDataCreateActivity = () => {
     axios
       .put(
         'https://projectdeneme.herokuapp.com/activities/addNewActivity',
-        {
-            'Access-Control-Allow-Origin': '*',    
+        { 
           activityName: activityNameText.value,
           date: datepicker.value,
           capacity: quotaText.value,
