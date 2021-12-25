@@ -24,13 +24,14 @@ const getDataCreateActivity = () => {
   axios.get('https://projectdeneme.herokuapp.com/activities/addNewActivity').then(function (response) {
       console.log(response);
 
-  }
+  })
 
       .catch(function (error) {
           // handle error
           console.log(error);
-      });
-};
+      }
+      )
+}
 /** 
 function createCookie(name,pwds){
   let mail = document.getElementById("userMail");
