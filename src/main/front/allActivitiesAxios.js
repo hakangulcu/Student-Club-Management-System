@@ -1,5 +1,5 @@
 
-const joinButton = document.getElementById("joinButton");
+const navActivities = document.getElementById("navActivities");
 //const axios = require('axios');
 //https://projectdeneme.herokuapp.com/activities/listActivities
 //const axios = require('axios').default;
@@ -38,4 +38,4 @@ const currentData = await axios.get('https://projectdeneme.herokuapp.com/activit
 joinButton.addEventListener('click', getData)
 */
 
-joinButton.addEventListener('click', getData)
+navActivities.addEventListener('click', getData)
