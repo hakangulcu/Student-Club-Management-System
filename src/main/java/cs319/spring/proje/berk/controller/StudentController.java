@@ -90,7 +90,8 @@ public class StudentController {
     @PutMapping(path = "addActivityToStudent/{studentId}/{activityId}")
     public void addActivityToStudent(@PathVariable("studentId") Long studentId,
                                      @PathVariable("activityId") Long activityId) {
-        studentService.addActivityToStudent(studentId, activityId);
+        Activity activity = activityService.getActivity(activityId);
+        studentService.addActivityToStudent(studentId, activity);
 
         //Student student = studentService.getStudent(studentId);
         //activityService.addStudentToActivity(student, activityId);
@@ -99,7 +100,8 @@ public class StudentController {
     @PutMapping(path = "addClubToStudent/{studentId}/{clubId}")
     public void addClubToStudent(@PathVariable("studentId") Long studentId,
                                  @PathVariable("clubId") Long clubId) {
-        studentService.addClubToStudent(studentId, clubId);
+        Club club = clubService.getClub(clubId);
+        studentService.addClubToStudent(studentId, club);
         //Student student = studentService.getStudent(studentId);
         //clubService.addStudentToClub(student, clubId);
     }
@@ -131,5 +133,10 @@ public class StudentController {
                                       @PathVariable("clubId") Long clubId) {
         Club club = clubService.getClub(clubId);
         studentService.removeClubFromStudent(studentId, club);
+    }
+
+    @GetMapping(path = "getUnattendedClubs/{studentId}")
+    public List<Club> getUnattendedClubs(@PathVariable("studentId") Long studentId) {
+        return studentService.getUnattendedClubs(studentId);
     }
 }

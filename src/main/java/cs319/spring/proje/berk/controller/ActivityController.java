@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "activities")
 public class ActivityController {
@@ -32,6 +33,7 @@ public class ActivityController {
 
     @GetMapping(path = "listActivities")
     public List<Activity> listActivities() {
+        System.out.println("list activities");
         return activityService.listActivities();
     }
 
@@ -40,8 +42,10 @@ public class ActivityController {
         return activityService.getActivity(id);
     }
 
+    @CrossOrigin
     @PutMapping(path = "addNewActivity")
     public void addNewActivity(@RequestBody Activity activity) {
+        System.out.println("add new activity in activity controller");
         activityService.addNewActivity(activity);
     }
 
@@ -51,6 +55,7 @@ public class ActivityController {
         activityService.deleteActivity(id);
     }
 
+    /*
     @PutMapping(path = "addDescriptionToActivity/{activityId}")
     public void addDescriptionToActivity(@PathVariable("activityId") Long activityId,
                                          @RequestBody Description description) {
@@ -60,6 +65,8 @@ public class ActivityController {
         descriptionService.addActivityToDescription(activity, description);
         activityService.addDescriptionToActivity(description, activityId);
     }
+
+     */
 
     @PutMapping(path = "addEvaluationToActivity/{activityId}")
     public void addEvaluationToActivity(@PathVariable("activityId") Long activityId,

@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table
 public class ClubAdvisor extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "club_advisor_sequence")

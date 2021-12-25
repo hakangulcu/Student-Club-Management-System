@@ -39,8 +39,10 @@ public class Activity {
     @ManyToMany(mappedBy = "activityList")
     private List<Student> participantList;      // DONE
 
-    @OneToOne
-    private Description activityDescription;    // DONE
+    // @OneToOne
+    // private Description activityDescription;    // DONE
+
+    private String activityDescription;
 
     @OneToMany(mappedBy = "activity")
     private List<EvaluationBar> evaluationList; // DONE?

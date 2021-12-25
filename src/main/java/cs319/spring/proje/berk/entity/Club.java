@@ -50,8 +50,10 @@ public class Club {
     @OneToOne
     private ClubCard clubCard;                  // done?
 
+
+    @JsonIgnore
     @OneToMany(mappedBy = "managedClub")
-    private List<ClubManager> clubManagerList;  // TODO
+    private List<ClubManager> clubManagerList;
 
     @ManyToOne
     private ClubAdvisor clubAdvisor;

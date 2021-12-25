@@ -16,6 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table
 public class Student extends User {
 
     @JsonIgnore
@@ -40,6 +41,8 @@ public class Student extends User {
 
     @OneToMany(mappedBy = "student")
     private List<Notification> notificationList;        // done?
+
+    private String department;
 
     // @OneToOne
     // private Schedule schedule;

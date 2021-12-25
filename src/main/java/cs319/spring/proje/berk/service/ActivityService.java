@@ -44,19 +44,18 @@ public class ActivityService {
     @Transactional
     public void addNewActivity(Activity activity) {
         System.out.println("add activity in service");
-        Activity activityById = null;
+        Activity activityByActivityName = activityRepository.findActivityByActivityName(activity.getActivityName());
 
-        if(activity.getId() != null)
-            activityById = activityRepository.findById(activity.getId()).orElse(null);
-
-        if(activityById != null) {
-            activityById.setDate(activity.getDate());
-            activityById.setCapacity(activity.getCapacity());
-            activityById.setGe250Point(activity.getGe250Point());
+        if(activityByActivityName == null) {
+            activityRepository.save(activity);
         }
 
-        else
-            activityRepository.save(activity);
+        else {
+            activityByActivityName.setDate(activity.getDate());
+            activityByActivityName.setCapacity(activity.getCapacity());
+            activityByActivityName.setGe250Point(activity.getGe250Point());
+            activityByActivityName.setActivityDescription(activity.getActivityDescription());
+        }
     }
 
     public void deleteActivity(Long id) {
@@ -84,6 +83,7 @@ public class ActivityService {
         throw new IllegalStateException("student does not have this activity");
     }
 
+    /*
     @Transactional
     public void addDescriptionToActivity(Description description, Long activityId) {
         Activity activity = activityRepository.findById(activityId).orElse(null);
@@ -93,6 +93,8 @@ public class ActivityService {
 
         activity.setActivityDescription(description);
     }
+
+     */
 
     public Long getActivityIdByName(String activityName) {
         return activityRepository.findActivityByActivityName(activityName).getId();

@@ -72,6 +72,7 @@ public class ClubService {
 
     @Transactional
     public void addStudentToClub(Student student, Long clubId) {
+        System.out.println("add student to club");
         Club clubById = clubRepository.findById(clubId).orElse(null);
 
         if(clubById == null) {
@@ -90,14 +91,15 @@ public class ClubService {
     }
 
     @Transactional
-    public void addActivityToClub(Long activityId, Long clubId) {
-        Activity activityById = activityService.getActivity(activityId);
+    public void addActivityToClub(Activity activity, Long clubId) {
+        System.out.println("add activity to club");
         Club clubById = clubRepository.findById(clubId).orElse(null);
 
         if(clubById == null)
             throw new IllegalStateException("club does not exist");
 
-        clubById.getActivityList().add(activityById);
+        if(!clubById.getActivityList().contains(activity))
+            clubById.getActivityList().add(activity);
     }
 
     /*
@@ -118,9 +120,30 @@ public class ClubService {
     }
 
     public List<Activity> listActivities(Long clubId) {
+        System.out.println("list club activities");
         Club club = clubRepository.findById(clubId).orElse(null);
         if(club == null)
             throw new IllegalStateException("club does not exist");
         return club.getActivityList();
     }
+
+    public List<Student> listStudentsInClub(Long clubId) {
+        Club club = clubRepository.findById(clubId).orElse(null);
+        if(club == null)
+            throw new IllegalStateException("club does not exist");
+        return club.getStudentList();
+    }
+
+    /*
+    @Transactional
+    public void addClubManagerToClub(ClubManager clubManager, Long clubId) {
+        Club club = clubRepository.findById(clubId).orElse(null);
+        if(club == null)
+            throw new IllegalStateException("club does not exist");
+
+        if(!club.getClubManagerList().contains(clubManager))
+            club.getClubManagerList().add(clubManager);
+    }
+
+     */
 }
