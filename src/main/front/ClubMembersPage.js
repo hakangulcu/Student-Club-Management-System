@@ -19,7 +19,7 @@ const getData = () => {
                 var email = response.data[i].email;
                 var dep = response.data[i].department;
                 const line31 = document.createElement('line31');
-                line31.innerHTML = '<tr>\n' +
+                line31.innerHTML += '<tr>\n' +
                     '                <th scope="col">'+ name+'</th>\n' +
                     '                <th scope="col"> '+surname+'</th>\n' +
                     '                <th scope="col">'+sid+'</th>\n' +

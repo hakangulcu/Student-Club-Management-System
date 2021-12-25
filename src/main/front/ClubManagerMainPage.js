@@ -28,7 +28,7 @@ const getData = () => {
         var club = response.data[i].club;
 
         const line32 = document.createElement('line32');
-        line32.innerHTML = '<tr><td>'+date+'</td><td>'+desc+'</td><td>'+club+'</td> </tr>';
+        line32.innerHTML += '<tr><td>'+date+'</td><td>'+desc+'</td><td>'+club+'</td> </tr>';
         tobbybest.appendChild(line32);
 
         }

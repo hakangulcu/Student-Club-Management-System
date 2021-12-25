@@ -3,7 +3,7 @@
 const getData = () => {
 
 
-    axios.get('https://projectdeneme.herokuapp.com/student/getUnattendedClubs/1').then(function (response) {
+    axios.get('https://projectdeneme.herokuapp.com/students/getUnattendedClubs/1').then(function (response) {
 
         console.log(response);
 
@@ -14,8 +14,8 @@ const getData = () => {
 
             var clubname = response.data[i].clubName;
 
-            document.body.innerHTML =' <ul class="list-group list-group-horizontal mt-3 justify-content-evenly" style="background-color: #cbcaca" >\n' +
-                '        <li class="list-group-item col-lg-6 col-sm-4 col-md-4 text-center ms-2" style="border: none;background-color: #cbcaca">' + clubName +'</li>\n' +
+            document.body.innerHTML +=' <ul class="list-group list-group-horizontal mt-3 justify-content-evenly" style="background-color: #cbcaca" >\n' +
+                '        <li class="list-group-item col-lg-6 col-sm-4 col-md-4 text-center ms-2" style="border: none;background-color: #cbcaca">' + clubname +'</li>\n' +
                 '        <li class="list-group-item  col-lg-2 ms-2 " style="border: none;background-color: #cbcaca">\n' +
                 '            <button type="button" class="btn btn-danger btn-outline-dark " style="color: black">Show</button>\n' +
                 '        </li>\n' +
