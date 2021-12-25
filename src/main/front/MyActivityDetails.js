@@ -1,6 +1,6 @@
 const tbody = document.getElementById("tbody");
 const getData = () => {
-    axios.get('https://projectdeneme.herokuapp.com/activities/').then(function (response) {
+    axios.get('https://projectdeneme.herokuapp.com/clubs/listActivities/1').then(function (response) {
         console.log(response);
         for(var i = 0; i < response.data.length; i++) {
             var actName = response.data[i].activityName;
