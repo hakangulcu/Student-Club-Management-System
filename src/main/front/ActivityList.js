@@ -3,6 +3,7 @@
 //const axios = require('axios');
 //https://projectdeneme.herokuapp.com/activities/listActivities
 //const axios = require('axios').default;
+const id= sessionStorage.getItem("clubId");
 
 
 const getData2 = () => {

@@ -7,7 +7,7 @@ const quotaText = document.getElementById('quotaText');
 const placeText = document.getElementById('placeText');
 const ge250Text = document.getElementById('ge250Text');
 const saveButton = document.getElementById('saveButton');
-
+const id= sessionStorage.getItem("clubId");
  /** 
 const getDataCreateActivity = () => {
     console.log("salkjdsakjdsakj");
