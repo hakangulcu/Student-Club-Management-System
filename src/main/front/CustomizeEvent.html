@@ -53,7 +53,7 @@
 </style>
 </head>
 
-<body onload="getActivity() "style="background-color: black;">
+<body onload="getActivity() "style="background-color: white;">
     <nav>
         <a href="ClubManagerMainPage.html">Main Page</a>
         <a href="ClubMembersPage.html">club members</a>
@@ -65,77 +65,79 @@
 
 
 
-    <div class="container">
+    <div class= "container">
         <div class="row ">
             <div class="col">
-                <label class="labels">Activity Name</label>
+                <label style= "color: black" class="labels">ACTIVITY NAME</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="activityNameText" rows="1" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
+                    <textarea style="background-color: white; color:#000000;" class="textarea" id="activityNameText" rows="1" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
                 </div>
 
             </div>
             <div class="col">
-                
+
             </div>
         </div>
         <br/>
         <div class="row ">
             <div class="col">
-                <label class="labels">Activity Description</label>
+                <label style= "color: black" class="labels">ACTIVITY DESCRIPTION</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="descriptionText" rows="6" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
+                    <textarea style="background-color: white; color:#000000;" class="textarea" id="descriptionText" rows="6" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
                 </div>
             </div>
             <div class="col">
-                <label class="labels">Guests</label>
+                <label style= "color: black" class="labels">GUESTS</label>
                 <div class="textarea_style">
-                    <textarea class="textarea" id="guestText" rows="6" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
+                    <textarea style="background-color: white; color:#000000;" class="textarea" id="guestText" rows="6" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
                 </div>
             </div>
         </div>
         <br/>
         <div class="row ">
+
             <div class="col">
-                <form>
-                    <div class="row form-group">
-                        <label class="labels" for="date" class="col-sm-1 col-form-label">Date</label>
-                            <div class="input-group date" id="datepicker">
-                                <input id = "date" type="text" class="form-control bg-dark">
-                                <span class="input-group-append">
-                                    <span class="input-group-text bg-dark">
-                                        <i class="fa fa-calendar"></i>
+                <label style= "color: black" class="labels">PLACE</label>
+                <div class="textarea_style">
+                    <textarea style="background-color: white; color:#000000;" class="textarea" id="placeText" rows="1" column="45" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
+                </div>
+
+            </div>
+            <div class="col">
+                <label style= "color: black" class="labels">QUOTA</label>
+                <br>
+                <input id = "quotaText" type="number" style ="height: 50%; width: 100%;  background-color: white; color: black;" value="50" min="0" max="1000" step="10"/>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col container-fluid">
+                <form style="color: white" >
+                    <div style="color: white" class="row form-group mb-3" >
+                        <label style= "color: black" class="labels" for="date" class="col-sm-1 col-form-label">DATE</label>
+                        <div style="color: white;" class="input-group date" id="datepicker">
+                            <input style="color: white" id = "date" type="text" class="form-control bg-dark">
+                            <span style="color: white" class="input-group-append">
+                                    <span style="color: white" class="input-group-text bg-dark">
+                                        <i style="color: white" class="fa fa-calendar"></i>
                                     </span>
                                 </span>
-                            </div>
-                        
+                        </div>
+
                     </div>
-                </form>        
-            <script type="text/javascript">
-                $(function() {
-                    $('#datepicker').datepicker({ format: 'yyyy-mm-dd'});
-                });
-            </script>
-                
-            </div>
-            <div class="col">
-                <label class="labels">Quota</label>
-                <br>
-                <input id = "quotaText" type="number" style ="height: 40%; width: 50%;  background-color: black; color: blanchedalmond;" value="50" min="0" max="1000" step="10"/>
-            </div>
-        </div>
-  
-        <div class="row ">
-            <div class="col">
-                <label class="labels">Place</label>
-                <div class="textarea_style">
-                    <textarea class="textarea" id="placeText" rows="1" column="37" maxlength="500" minlength="1" placeholder="Write your description here..."></textarea>
-                </div>
+                </form>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#datepicker').datepicker({ format: 'yyyy-mm-dd'});
+                    });
+
+                </script>
 
             </div>
             <div class="col">
-                <label class="labels">GE 250-251 Points</label>
+                <label style= "color: black" class="labels">GE 250-251 POINTS</label>
                 <br>
-                <input type="number" id ="ge250Text" style ="height: 60%; width: 50%; background-color: black; color: blanchedalmond;" value="0" min="0" max="50" step="5"/>
+                <input type="number" id ="ge250Text" style ="height: 50%; width: 100%; background-color: white; color: black;" value="0" min="0" max="50" step="5"/>
             </div>
         </div>
     </div>
@@ -144,14 +146,14 @@
         <div class="col">
             <div class="col" style="text-align: center;">
                 <button class="button-event" onclick="location.href = 'gallery.html'">ADD IMAGE</button>
-           </div>
+            </div>
         </div>
         <div class="col" style="text-align: center;">
-             <button id = "saveButton" class="button-event" >SAVE</button>
-             <!-- onclick="location.href = 'MyActivityDetails.html'" -->
+            <button id = "saveButton" class="button-event" >SAVE</button>
+            <!-- onclick="location.href = 'MyActivityDetails.html'" -->
         </div>
     </div>
-</div>
+    </div>
 
 </body>
 
