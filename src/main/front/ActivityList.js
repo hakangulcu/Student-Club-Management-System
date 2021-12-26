@@ -20,10 +20,7 @@ const getData2 = () => {
                 '      <li class="list-group-item col-lg-2 col-sm-2 col-md-2 d-none d-sm-block text-center  col-2" style="border: none"><span id="activityDate1"> '+ activitydate+ ' </span></li>\n' +
                 '      <li class="list-group-item col-lg-2 col-sm-2 col-md-2 d-none d-sm-block text-center  col-2" style="border: none"><span id="activityPlace1"> '+ activityplace+ ' </span></li>\n' +
                 '      <li class="list-group-item col-lg-1 col-sm-1 col-md-1 d-none d-sm-block text-center  col-1" style="border: none"><span id="activityQuota1"> '+ accap+ '</span></li>\n' +
-                '      <li class="list-group-item col-lg-1 col-sm-1 col-md-1 d-none d-sm-block text-center  col-1" style="border: none"><span id="activityGe1"> '+ ge250+ ' </span></li>\n' +
-                '      <li class="list-group-item col-lg-2 col-2 justify-content-center d-none  d-sm-block" style="border: none">\n' +
-                '        <button id = "joinButton" type="button" class="btn btn-danger btn-outline-dark justify-content-center" style="color: white">Join</button>\n' +
-                '      </li>';
+                '      <li class="list-group-item col-lg-1 col-sm-1 col-md-1 d-none d-sm-block text-center  col-1" style="border: none"><span id="activityGe1"> '+ ge250+ ' </span></li>';
 
         }
     })
