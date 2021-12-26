@@ -29,7 +29,7 @@ public class Club {
             inverseJoinColumns = @JoinColumn(name = "activity_id"))
     private List<Activity> activityList;        // done
 
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "clubList")
     private List<Student> studentList;          // done
 

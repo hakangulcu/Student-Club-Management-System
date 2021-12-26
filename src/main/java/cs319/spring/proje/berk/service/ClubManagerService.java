@@ -1,11 +1,8 @@
 package cs319.spring.proje.berk.service;
 
-import ch.qos.logback.core.joran.spi.NoAutoStart;
 import cs319.spring.proje.berk.entity.Club;
 import cs319.spring.proje.berk.entity.ClubManager;
-import cs319.spring.proje.berk.entity.Student;
 import cs319.spring.proje.berk.repository.ClubManagerRepository;
-import cs319.spring.proje.berk.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,6 +50,32 @@ public class ClubManagerService {
             clubManagerByEmail.setUserId(clubManager.getUserId());
         }
     }
+
+    /*
+    public ResponseObject loginPasswordCheck(String email, String password) {
+        ClubManager clubManager = clubManagerRepository.findClubManagerByEmail(email);
+
+        if(clubManager != null && Objects.equals(clubManager.getPassword(), password))
+            return new ResponseObject(true, clubManager.getId());
+        else
+            return new ResponseObject(false, null);
+    }
+
+     */
+    /*
+    public int loginPasswordCheck(String email, String password) {
+        ClubManager clubManager = clubManagerRepository.findClubManagerByEmail(email);
+        if(clubManager == null) {
+            throw new IllegalStateException("club manager does not exist");
+        }
+        else {
+            if(Objects.equals(clubManager.getPassword(), password))
+                return Math.toIntExact(clubManager.getId());
+            else
+                return -1;
+        }
+    }
+    */
 
     public boolean loginPasswordCheck(String email, String password) {
         ClubManager clubManager = clubManagerRepository.findClubManagerByEmail(email);

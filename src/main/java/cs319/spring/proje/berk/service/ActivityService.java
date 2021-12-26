@@ -55,6 +55,8 @@ public class ActivityService {
             activityByActivityName.setCapacity(activity.getCapacity());
             activityByActivityName.setGe250Point(activity.getGe250Point());
             activityByActivityName.setActivityDescription(activity.getActivityDescription());
+            activityByActivityName.setParticipantList(activity.getParticipantList());
+            activityByActivityName.setPlace(activity.getPlace());
         }
     }
 

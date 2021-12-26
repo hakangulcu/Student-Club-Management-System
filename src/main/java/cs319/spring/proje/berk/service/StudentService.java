@@ -1,9 +1,6 @@
 package cs319.spring.proje.berk.service;
 
-import cs319.spring.proje.berk.entity.Activity;
-import cs319.spring.proje.berk.entity.Club;
-import cs319.spring.proje.berk.entity.Notification;
-import cs319.spring.proje.berk.entity.Student;
+import cs319.spring.proje.berk.entity.*;
 import cs319.spring.proje.berk.repository.ClubRepository;
 import cs319.spring.proje.berk.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -170,10 +167,21 @@ public class StudentService {
         student.getActivityList().remove(activity);
     }
 
-    public boolean loginPasswordCheck(String email, String password) {
+    /*
+    public int loginPasswordCheck(String email, String password) {
         Student student = studentRepository.findStudentByEmail(email);
-        return student != null && Objects.equals(student.getPassword(), password);
+        if(student == null) {
+            throw new IllegalStateException("student does not exist");
+        }
+        else {
+            if(Objects.equals(student.getPassword(), password))
+                return Math.toIntExact(student.getId());
+            else
+                return -1;
+        }
     }
+
+     */
 
     @Transactional
     public void removeClubFromStudent(Long studentId, Club club) {
@@ -201,5 +209,19 @@ public class StudentService {
         }
 
         return unattendedClubs;
+    }
+
+    public List<Club> getClubs(Long studentId) {
+        Student student = studentRepository.findById(studentId).orElse(null);
+
+        if(student == null)
+            throw new IllegalStateException("student does not exist");
+
+        return student.getClubList();
+    }
+
+    public boolean loginPasswordCheck(String email, String password) {
+        Student student = studentRepository.findStudentByEmail(email);
+        return student != null && Objects.equals(student.getPassword(), password);
     }
 }

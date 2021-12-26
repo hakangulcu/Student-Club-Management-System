@@ -1,10 +1,7 @@
 package cs319.spring.proje.berk.controller;
 
 
-import cs319.spring.proje.berk.entity.Activity;
-import cs319.spring.proje.berk.entity.Club;
-import cs319.spring.proje.berk.entity.Notification;
-import cs319.spring.proje.berk.entity.Student;
+import cs319.spring.proje.berk.entity.*;
 import cs319.spring.proje.berk.service.ActivityService;
 import cs319.spring.proje.berk.service.ClubService;
 import cs319.spring.proje.berk.service.NotificationService;
@@ -13,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin
 @RestController(value = "demo")
@@ -59,8 +57,8 @@ public class StudentController {
     }
 
     @GetMapping(path = "getClubs/{studentId}")
-    public List<Club> getClubs(@PathVariable("studentId") Long id) {
-        return studentService.getStudent(id).getClubList();
+    public List<Club> getClubs(@PathVariable("studentId") Long studentId) {
+        return studentService.getClubs(studentId);
     }
 
     @GetMapping(path = "getFavoriteClubs/{studentId}")
@@ -85,7 +83,6 @@ public class StudentController {
     public List<Activity> listAllActivities(@PathVariable("studentId") Long id) {
         return studentService.listAllActivities(id);
     }
-
 
     @PutMapping(path = "addActivityToStudent/{studentId}/{activityId}")
     public void addActivityToStudent(@PathVariable("studentId") Long studentId,
@@ -121,6 +118,14 @@ public class StudentController {
         Activity activity = activityService.getActivity(activityId);
         studentService.deleteActivityFromStudent(activity, studentId);
     }
+
+    /*
+    @GetMapping(path = "loginPasswordCheck/{email}/{password}")
+    public int loginPasswordCheck(@PathVariable("email") String email,
+                                  @PathVariable("password") String password) {
+        return studentService.loginPasswordCheck(email, password);
+    }
+    */
 
     @GetMapping(path = "loginPasswordCheck/{email}/{password}")
     public boolean loginPasswordCheck(@PathVariable("email") String email,

@@ -1,6 +1,5 @@
 package cs319.spring.proje.berk.controller;
 
-import cs319.spring.proje.berk.entity.Activity;
 import cs319.spring.proje.berk.entity.Club;
 import cs319.spring.proje.berk.entity.ClubManager;
 import cs319.spring.proje.berk.service.ClubManagerService;
@@ -48,11 +47,20 @@ public class ClubManagerController {
         clubManagerService.addClubManager(clubManager);
     }
 
+    /*
+    @GetMapping(path = "loginPasswordCheck/{email}/{password}")
+    public int loginPasswordCheck(@PathVariable("email") String email,
+                                  @PathVariable("password") String password) {
+        return clubManagerService.loginPasswordCheck(email, password);
+    }
+
+     */
     @GetMapping(path = "loginPasswordCheck/{email}/{password}")
     public boolean loginPasswordCheck(@PathVariable("email") String email,
                                       @PathVariable("password") String password) {
         return clubManagerService.loginPasswordCheck(email, password);
     }
+
 
     @PutMapping(path = "addClubToClubManager/{clubId}/{clubManagerId}")
     public void addClubToClubManager(@PathVariable("clubId") Long clubId,
