@@ -38,6 +38,7 @@ async function remove(idst)
         .catch(function (error) {
             console.log(error);
         });
+        document.location.href = "ActivityParticipantList.html"
 }
 
 

@@ -21,14 +21,14 @@ var currentID;
 
 
 
-const getLoginResult = () => {
-  axios.get('https://projectdeneme.herokuapp.com/clubManagers/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
+const getLoginResult2 = () => {
+  axios.get('https://projectdeneme.herokuapp.com/students/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
   console.log(response);
   console.log(response.data);
   if(response.data === true){
     getID(username.value);
 
-   document.location.href = "ClubManagerMainPage.html";
+   document.location.href = "MainPageS.html";
   }
   else{
     alert("E-mail or password is wrong!")
@@ -43,21 +43,15 @@ const getLoginResult = () => {
 
 function getID(usern){
 
-  axios.get('https://projectdeneme.herokuapp.com/clubManagers/getClubManagerIdByEmail/' + usern).then(function(response){
+  axios.get('https://projectdeneme.herokuapp.com/students/getStudentIdByEmail/' + usern).then(function(response){
     console.log(response.data);
     currentID = response.data;
     console.log(currentID);
 
 
   console.log(currentID);
-  axios.get('https://projectdeneme.herokuapp.com/clubManagers/getClub/' + currentID).then(function(response) {
-    console.log(response);
-    var clubId = "" + response.data.id;
-    console.log(typeof(clubId));
-    console.log(clubId);
-    sessionStorage.setItem("clubId", clubId );
+  sessionStorage.setItem("studentID", currentID );
 
-  })
   })
       .catch(function (error) {
         // handle error
