@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="card-hover.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="AllActivitiesAdvisor.js" defer></script>
+</head>
+
+<body onload="getData()">
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="asdasa col-lg-4 col-md-2 col-sm-2 col-2 text-center"><img src="logo.png" height="70" width="70"  ></div>
+
+
+            <div class="blank col-lg-1 col-md-0 col-sm-0 col-0"></div>
+            <div class="asdas col-lg-7 col-md-10 col-sm-10 col-10 text-end">
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav col-lg-12 text-center me-auto mb-2 mb-lg-0">
+                        <li class="nav-item col-lg-2">
+                            <a class="nav-link " style="color: aliceblue" aria-current="page" href="AdvisorClubDetails.html"> Club Details</a>
+                        </li>
+
+
+                        <li class="nav-item  col-lg-2">
+                            <a id ="navActivities" class="nav-link  " style="color: aliceblue" aria-current="page" href="AllActivitiesAdvisor.html">Activities</a>
+                        </li>
+                        <li class="nav-item col-lg-2">
+                            <a class="nav-link " style="color: aliceblue" aria-current="page" href="AdvisorMain.html">Home</a>
+                        </li>
+                        <li class="nav-item  col-lg-2">
+                            <a class="nav-link " style="color: red" aria-current="page" href="login.html">Log Out</a>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"><b>Activity List</b></th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr style="height: 20%;">
+        <td style="width: 75%;">
+
+            <div class="card">
+
+                <div class="container1">
+                    <h1 class="activity-name"><span id="activityname"> activityname</span></h1>
+                    <p><span id="descr">description </span></p>
+                    <h1 class="neon"><span id="quota">Quota : 27 / 55</span> </h1>
+                    <h1 class="neon"><span id="date">date</span> </h1>
+                </div>
+                <div class="container">
+                    <div class="row" style="text-align: center;"><button class="hidden-btn" > APPROVE</button></div>
+
+                    <div class="row" style="text-align: center;"><button class="hidden-btn" > DENY</button></div>
+                </div>
+            </div>
+        </td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+
+</html>
