@@ -14,7 +14,7 @@ const getData = () => {
                 var id1 = response.data[i].id;
 
                 const line31 = document.createElement('line31');
-                line31.innerHTML = '<tr class="ms-4" style="color: red"><td class="ms-4" style="color: red">'+ name +'</td><td>'+ surname +'</td><td>'+ id1 +'</td> </tr>';
+                line31.innerHTML = '<tr  style="color: red"><td class="ms-4" style="color: red">'+ name +'</td><td>'+ surname +'</td><td>'+ id1 +'</td> </tr>';
                 tbody.appendChild(line31);
             }
             ;
