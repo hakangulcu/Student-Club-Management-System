@@ -19,8 +19,6 @@ var login = document.getElementById("login");
 var currentID;
 
 
-
-
 const getLoginResult2 = () => {
   axios.get('https://projectdeneme.herokuapp.com/students/loginPasswordCheck/' + username.value + '/' + pass.value).then(function (response) {
   console.log(response);
@@ -65,5 +63,5 @@ function getID(usern){
   //can only write one entity at a time (name, pass)
 
 
-login.addEventListener('click', getLoginResult);
+login.addEventListener('click', getLoginResult2);
 
