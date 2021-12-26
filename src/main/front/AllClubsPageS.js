@@ -3,7 +3,7 @@
 const getData = () => {
 
 
-    axios.get('https://projectdeneme.herokuapp.com/students/getUnattendedClubs').then(function (response) {
+    axios.get('https://projectdeneme.herokuapp.com/students/getUnattendedClubs/1').then(function (response) {
 
         console.log(response);
         for(var i = 0; i < response.data.length; i++) {
