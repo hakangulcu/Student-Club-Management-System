@@ -26,14 +26,13 @@
 
     border:0;
     background: rgb(172, 25, 25);
-    margin: 10px auto;
+    margin:0 auto;
     text-align: center;
     border: 2px solid #940008;
     outline: none;
     color: rgb(255, 255, 255);
     border-radius: 24px;
-    padding: 14px 10px;
-    width:75%;
+    width:45%;
     margin-top:0px;
     font-size:15px;
     padding:8px;
@@ -41,8 +40,7 @@
   }
 
   .remove:hover{
-    width: 100%;
-    background: rgb(247, 142, 142);
+    background: rgb(255, 0, 0);
     border-color: red;
-    color: rgb(14, 0, 0);   
+    color: white;  
 }

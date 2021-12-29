@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="searchBar.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -18,45 +17,66 @@
 </head>
 
 <body onload="getData()">
-    <nav>
-        <a href="ClubManagerMainPage.html">Main Page</a>
-        <a href="ClubMembersPage.html">club members</a>
-        <a href="ActivityList.html">activity list</a>
-        <a href="ClubPage.html">club page</a>
-        <a href="LoginStudent.html" class="logout">log out</a>
-        <div class="animation start-home"></div>
-    </nav>
+    <div class="container-flex">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="asdasa col-lg-4 col-md-2 col-sm-2 col-2 text-center"><img src="logo.png" height="70" width="70"  ></div>
 
-   <div class="raw" style="text-align: right;">
-    <input class="input" type="text" placeholder="Find">
-   </div>
+
+                <div class="blank col-lg-1 col-md-0 col-sm-0 col-0"></div>
+                <div class="asdas col-lg-7 col-md-10 col-sm-10 col-10 text-end">
+
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav col-lg-12 text-center me-auto mb-2 mb-lg-0">
+                            <li class="nav-item col-lg-2">
+                                <a class="nav-link " style="color: aliceblue" aria-current="page" href="ClubManagerMainPage.html">Main Page</a>
+                            </li>
+                            <li class="nav-item  col-lg-2">
+                                <a class="nav-link " style="color: aliceblue" aria-current="page" href="ClubMembersPage.html">Club Members</a>
+                            </li>
+                            <li class="nav-item  col-lg-2">
+                                <a class="nav-link " style="color: aliceblue" aria-current="page" href="ActivityList.html">Activity List</a>
+                            </li>
+                            <li class="nav-item  col-lg-2">
+                                <a id ="navActivities" class="nav-link  " style="color: aliceblue" aria-current="page" href="ClubPage.html">Club</a>
+                            </li>
+
+                            <li class="nav-item  col-lg-2">
+                                <a class="nav-link " style="color: red" aria-current="page" href="PreLoginpage.html">Log Out</a>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+      </div>
 
    <div class="raw">
-    <table class="table table-dark table-hover">
+    <table id="clubMembersTable" class="table table-secondary table-hover mt-5">
         <thead>
             <tr>
                 <th scope="col">NAME</th>
                 <th scope="col">SURNAME</th>
                 <th scope="col">ID</th>
                 <th scope="col">E-MAIL</th>
-                <th scope="col">PHONE NUMBER</th>
                 <th scope="col">DEPARTMENT</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody id="tbody" style="color:red;">
+        <!--
             <tr>
                 <td>Tarık</td>
                 <td>Karali</td>
                 <td>21703937</td>
                 <td>bugra.karali@ug.bilkent.edu.tr</td>
-                <td>05555555555</td>
                 <td>CS</td>
                 <td style="text-align: center;"><button class="remove">
                     Remove from Club
                 </button></td>
             </tr>
 
+            -->
         </tbody>
     </table>
    </div>

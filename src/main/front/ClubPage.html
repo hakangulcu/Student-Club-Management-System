@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="textarea.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -83,7 +82,7 @@
 
         .button-go {
             border: 0;
-            background: rgb(154, 248, 240);
+            background: white;
             margin: 20px auto;
             text-align: center;
             border: 2px solid #032db9;
@@ -91,8 +90,8 @@
             color: rgb(17, 2, 2);
             border-radius: 24px;
             padding: 14px 10px;
-            width: 75%;
-            margin-top: 5px;
+            width: 45%;
+            margin-top: 10px;
             font-size: 15px;
             padding: 8px;
             transition: 0.30s;
@@ -100,11 +99,8 @@
         }
 
         .button-go:hover {
-            width: 100%;
-            box-shadow: 0 12px 16px 0 #1abc9c, 0 17px 50px 0 #56fcdb;
-            background: white;
-            border: 3px solid #29a2f3;
-            color: rgb(240, 251, 255);
+            background: rgb(144, 200, 226);
+            box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24),0 8px 25px 0 rgba(0,0,0,0.19);
         }
 
         .button-delete {
@@ -136,14 +132,39 @@
 </head>
 
 <body style="background-color: white;">
-    <nav>
-        <a href="ClubManagerMainPage.html">Main Page</a>
-        <a href="ClubMembersPage.html">club members</a>
-        <a href="ActivityList.html">activity list</a>
-        <a href="ClubPage.html">club page</a>
-        <a href="LoginStudent.html" class="logout">log out</a>
-        <div class="animation start-home"></div>
-    </nav>
+    <div class="container-flex">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="asdasa col-lg-4 col-md-2 col-sm-2 col-2 text-center"><img src="logo.png" height="70" width="70"  ></div>
+
+
+                <div class="blank col-lg-1 col-md-0 col-sm-0 col-0"></div>
+                <div class="asdas col-lg-7 col-md-10 col-sm-10 col-10 text-end">
+
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav col-lg-12 text-center me-auto mb-2 mb-lg-0">
+                            <li class="nav-item col-lg-2">
+                                <a class="nav-link " style="color: aliceblue" aria-current="page" href="ClubManagerMainPage.html">Main Page</a>
+                            </li>
+                            <li class="nav-item  col-lg-2">
+                                <a class="nav-link " style="color: aliceblue" aria-current="page" href="ClubMembersPage.html">Club Members</a>
+                            </li>
+                            <li class="nav-item  col-lg-2">
+                                <a class="nav-link " style="color: aliceblue" aria-current="page" href="ActivityList.html">Activity List</a>
+                            </li>
+                            <li class="nav-item  col-lg-2">
+                                <a id ="navActivities" class="nav-link  " style="color: aliceblue" aria-current="page" href="ClubPage.html">Club</a>
+                            </li>
+
+                            <li class="nav-item  col-lg-2">
+                                <a class="nav-link " style="color: red" aria-current="page" href="PreLoginpage.html">Log Out</a>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+      </div>
 
 
 
@@ -166,16 +187,16 @@
         </div>
         <div class="row ">
             <div class="col-md-6">
-                <label style="color: black;" class="labels">Club Description</label>
+                <label style="color: black; font-size:15px;" class="labels">Club Description</label>
                 <div class="textarea_style">
-                    <textarea style="background-color: white;" class="textarea" id="clubDescription" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea style="background-color: white; color: black" class="textarea" id="clubDescription" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
             <div class="col-md-6">
-                <label style="color: black;" class="labels">Mission</label>
+                <label style="color: black;font-size:15px;" class="labels">Mission</label>
                 <div class="textarea_style">
-                    <textarea style="background-color: white;" class="textarea" id="mission" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea style="background-color: white;color: black" class="textarea" id="mission" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
@@ -183,16 +204,16 @@
 
         <div class="row ">
             <div class="col-md-6">
-                <label style="color: black;" class="labels">Vision</label>
+                <label style="color: black;font-size:15px; margin-top:10px" class="labels">Vision</label>
                 <div class="textarea_style">
-                    <textarea style="background-color: white;" class="textarea" id="vision" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea style="background-color: white;color: black" class="textarea" id="vision" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
             <div class="col-md-6">
-                <label style="color: black;" class="labels">Past Activities</label>
+                <label style="color: black;font-size:15px; margin-top:10px" class="labels">Past Activities</label>
                 <div class="textarea_style">
-                    <textarea style="background-color: white;" class="textarea" id="pastActivities" rows="6" column="37" maxlength="500" minlength="1"
+                    <textarea style="background-color: white;color: black" class="textarea" id="pastActivities" rows="6" column="37" maxlength="500" minlength="1"
                         placeholder="Write your description here..."></textarea>
                 </div>
             </div>
