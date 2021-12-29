@@ -44,22 +44,29 @@ public class ActivityService {
     @Transactional
     public void addNewActivity(Activity activity) {
         System.out.println("add activity in service");
-        Activity activityByActivityName = activityRepository.findActivityByActivityName(activity.getActivityName());
+        Activity activityById = activityRepository.findById(activity.getId()).orElse(null);;
 
-        if(activityByActivityName == null) {
+
+        // customize
+        if(activity.getId() != null) {
+            if(activityById == null)
+                throw new IllegalStateException("activity does not exist");
+            else {
+                activityById.setActivityName(activity.getActivityName());
+                activityById.setDate(activity.getDate());
+                activityById.setCapacity(activity.getCapacity());
+                activityById.setGe250Point(activity.getGe250Point());
+                activityById.setActivityDescription(activity.getActivityDescription());
+                activityById.setParticipantList(activity.getParticipantList());
+                activityById.setPlace(activity.getPlace());
+            }
+        }
+
+        else
             activityRepository.save(activity);
-        }
-
-        else {
-            activityByActivityName.setDate(activity.getDate());
-            activityByActivityName.setCapacity(activity.getCapacity());
-            activityByActivityName.setGe250Point(activity.getGe250Point());
-            activityByActivityName.setActivityDescription(activity.getActivityDescription());
-            activityByActivityName.setParticipantList(activity.getParticipantList());
-            activityByActivityName.setPlace(activity.getPlace());
-        }
     }
 
+    @Transactional
     public void deleteActivity(Long id) {
         Activity activityById = activityRepository.findById(id).orElseThrow(() -> new IllegalStateException("activity with id " +
                 id + " does not exist"));
@@ -99,7 +106,10 @@ public class ActivityService {
      */
 
     public Long getActivityIdByName(String activityName) {
-        return activityRepository.findActivityByActivityName(activityName).getId();
+        Activity activity = activityRepository.findActivityByActivityName(activityName);
+        if(activity != null)
+            return activity.getId();
+        throw new IllegalStateException("activity with that name does not exist");
     }
 
     // TODO: Check if this method works properly
@@ -171,5 +181,21 @@ public class ActivityService {
         }
         else
             throw new IllegalStateException("student does not exist in activity participants list");
+    }
+
+    @Transactional
+    public void customizeActivity(Long activityId, Activity activity) {
+        Activity activityById = activityRepository.findById(activityId).orElse(null);
+        if(activityById == null)
+            throw new IllegalStateException("activity does not exist");
+
+        activityById.setActivityName(activity.getActivityName());
+        activityById.setDate(activity.getDate());
+        activityById.setCapacity(activity.getCapacity());
+        activityById.setGe250Point(activity.getGe250Point());
+        activityById.setActivityDescription(activity.getActivityDescription());
+        activityById.setParticipantList(activity.getParticipantList());
+        activityById.setPlace(activity.getPlace());
+        activityById.setGuests(activity.getGuests());
     }
 }

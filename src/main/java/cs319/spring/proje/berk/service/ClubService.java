@@ -28,7 +28,7 @@ public class ClubService {
     public void addNewClub(Club club) {
         System.out.println("add club in service");
 
-        Club clubByName = clubRepository.findByClubName(club.getClubName());
+        Club clubByName = clubRepository.findClubByClubName(club.getClubName());
         //  if club name does not exist
         if(clubByName == null) {
             clubRepository.save(club);
@@ -132,6 +132,13 @@ public class ClubService {
         if(club == null)
             throw new IllegalStateException("club does not exist");
         return club.getStudentList();
+    }
+
+    public Long getClubIdByClubName(String clubName) {
+        Club club = clubRepository.findClubByClubName(clubName);
+        if(club != null)
+            return club.getId();
+        throw new IllegalStateException("club with that name does not exist");
     }
 
     /*

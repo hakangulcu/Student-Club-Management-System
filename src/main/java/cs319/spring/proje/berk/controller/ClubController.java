@@ -52,9 +52,12 @@ public class ClubController {
     public void addActivityToClub(@PathVariable("activityId") Long activityId,
                                   @PathVariable("clubId") Long clubId) {
         Activity activity = activityService.getActivity(activityId);
-        Club clubById = clubService.getClub(clubId);
         clubService.addActivityToClub(activity, clubId);
-        // activityService.addClubToActivity(clubById, activityId);
+    }
+
+    @GetMapping(path = "getClubIdByClubName/{clubName}")
+    public Long getClubIdByClubName(@PathVariable("clubName") String clubName) {
+        return clubService.getClubIdByClubName(clubName);
     }
 
     /*

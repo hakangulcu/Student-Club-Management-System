@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClubRepository extends JpaRepository<Club, Long> {
     // public Club findClubByName(String clubName);
-    public Club findByClubName(String clubName);
+    public Club findClubByClubName(String clubName);
 }

@@ -43,6 +43,7 @@ public class Activity {
     // private Description activityDescription;    // DONE
 
     private String activityDescription;
+    private String guests;
 
     @OneToMany(mappedBy = "activity")
     private List<EvaluationBar> evaluationList; // DONE?

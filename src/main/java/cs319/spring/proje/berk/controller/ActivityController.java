@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin // (origins = "http://localhost:63342")
 @RestController
 @RequestMapping(path = "activities")
 public class ActivityController {
@@ -93,13 +93,10 @@ public class ActivityController {
         return activityService.getParticipantList(activityId);
     }
 
-    /*
-    @PutMapping(path = "removeStudentFromActivity/{studentId}/{activityId}")
-    public void removeStudentFromActivity(@PathVariable("studentId") Long studentId,
-                                          @PathVariable("activityId") Long activityId) {
-        Student student = studentService.getStudent(studentId);
-        activityService.removeStudentFromActivity(student, activityId);
+    @CrossOrigin
+    @PutMapping(path = "customizeActivity/{activityId}")
+    public void customizeActivity(@PathVariable("activityId") Long activityId,
+                                  @RequestBody Activity activity) {
+        activityService.customizeActivity(activityId, activity);
     }
-
-     */
 }

@@ -73,7 +73,7 @@ public class StudentController {
     }
      */
 
-    @PutMapping(path = "changeFavoriteStatus/{studentId}/{clubId}")
+    @GetMapping(path = "changeFavoriteStatus/{studentId}/{clubId}")
     public void changeFavoriteStatus(@PathVariable("studentId") Long studentId,
                                      @PathVariable("clubId") Long clubId) {
         studentService.changeFavoriteStatus(studentId, clubId);
@@ -119,14 +119,6 @@ public class StudentController {
         studentService.deleteActivityFromStudent(activity, studentId);
     }
 
-    /*
-    @GetMapping(path = "loginPasswordCheck/{email}/{password}")
-    public int loginPasswordCheck(@PathVariable("email") String email,
-                                  @PathVariable("password") String password) {
-        return studentService.loginPasswordCheck(email, password);
-    }
-    */
-
     @GetMapping(path = "loginPasswordCheck/{email}/{password}")
     public boolean loginPasswordCheck(@PathVariable("email") String email,
                                       @PathVariable("password") String password) {
@@ -143,5 +135,10 @@ public class StudentController {
     @GetMapping(path = "getUnattendedClubs/{studentId}")
     public List<Club> getUnattendedClubs(@PathVariable("studentId") Long studentId) {
         return studentService.getUnattendedClubs(studentId);
+    }
+
+    @GetMapping(path = "getUnattendedActivities/{studentId}")
+    public List<Activity> getUnattendedActivities(@PathVariable("studentId") Long studentId) {
+        return studentService.getUnattendedActivities(studentId);
     }
 }

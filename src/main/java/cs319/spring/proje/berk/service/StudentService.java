@@ -224,4 +224,20 @@ public class StudentService {
         Student student = studentRepository.findStudentByEmail(email);
         return student != null && Objects.equals(student.getPassword(), password);
     }
+
+    public List<Activity> getUnattendedActivities(Long studentId) {
+        Student student = studentRepository.findById(studentId).orElse(null);
+        List<Activity> activityList = new ArrayList<>();
+
+        if(student == null)
+            throw new IllegalStateException("student does not exist");
+
+        for(Activity activity : activityService.listActivities()) {
+            if(!student.getActivityList().contains(activity)) {
+                activityList.add(activity);
+            }
+        }
+
+        return activityList;
+    }
 }
